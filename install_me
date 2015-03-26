@@ -4,7 +4,7 @@ filenames = Dir.entries('files').select{ |filename| !['.', '..'].include?(filena
 
 filenames.each do |filename|
   puts "symlinking #{filename}... \n"
-  symlink = "~/.#{filename}"
+  symlink = File.join(Dir.home, ".#{filename}")
   `mv #{symlink} #{symlink}.bkp`
   puts File.join(Dir.home, 'dotfiles', 'files', filename)
   `ln -s #{File.join(Dir.home, 'dotfiles', 'files', filename)} #{symlink}`
