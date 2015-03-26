@@ -121,6 +121,16 @@ set statusline+=%{fugitive#statusline()}
 highlight StatusLine ctermfg=yellow
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+                
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//ge
+  call cursor(l, c)
+endfunction
+
+autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+
 
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
