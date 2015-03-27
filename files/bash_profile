@@ -45,7 +45,7 @@ git_prompt ()
 }
  
 #PROMPT_COMMAND='PS1="${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w => ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
-PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_white}(VM-REALM)${c_path}\w ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
+PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
  
 function cuke()
 {
@@ -103,9 +103,8 @@ function ssa(){
  rails server -p3003
 }
 
-export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
-export M3_APP_PATH=/home/jquintero/vhl/m3
- 
+export M3_APP_PATH="$HOME/vhl/m3"
+
 # User specific aliases and functions
  
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
