@@ -29,7 +29,8 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplcache'
 Bundle 'jpo/vim-railscasts-theme'
-Bundle 'Townk/vim-autoclose' "plugin to autoclose chars like [, { and (
+" plugin to autoclose chars like [, { and (
+Bundle 'Townk/vim-autoclose' 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
