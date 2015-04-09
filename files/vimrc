@@ -27,10 +27,8 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete'
 Bundle 'jpo/vim-railscasts-theme'
-" plugin to autoclose chars like [, { and (
-Bundle 'Townk/vim-autoclose' 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
@@ -135,7 +133,7 @@ autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>Str
 
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 1
 
 
 " switch windows with <leader> w
