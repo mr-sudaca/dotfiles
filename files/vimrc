@@ -49,6 +49,21 @@ Bundle 'tomtom/tcomment_vim'
 " Commands for tcomment_vim
 " gcc :: Toggle comment for the curent line
 " gc{motion} ::Toggle comments for motion
+Bundle 'ecomba/vim-ruby-refactoring'
+" See https://github.com/ecomba/vim-ruby-refactoring for commands and keymaps                                      
+" Main shortcut: :nnoremap <leader>rel  :RExtractLet<cr>
+" :nnoremap <leader>rap  :RAddParameter<cr>
+" :nnoremap <leader>rcpc :RConvertPostConditional<cr>
+" :nnoremap <leader>rel  :RExtractLet<cr>
+" :vnoremap <leader>rec  :RExtractConstant<cr>
+" :vnoremap <leader>relv :RExtractLocalVariable<cr>
+" :nnoremap <leader>rit  :RInlineTemp<cr>
+" :vnoremap <leader>rrlv :RRenameLocalVariable<cr>
+" :vnoremap <leader>rriv :RRenameInstanceVariable<cr>
+" :vnoremap <leader>rem  :RExtractMethod<cr>
+Bundle 'bbatsov/rubocop'
+Bundle 'ngmy/vim-rubocop'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -135,7 +150,6 @@ autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>Str
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
 
-
 " switch windows with <leader> w
 nmap <leader>w <C-w><C-w>
 
@@ -151,6 +165,11 @@ let g:NERDTreeDirArrows=0
 " weird chars fix
 let g:auto_type_info=0
 
+
+" Rubocop config
+let g:vimrubocop_config = '~/vhl/ruby-style-guide/vhl-rubocop.yml'
+let g:vimrubocop_keymap = 0
+nmap <Leader>r :RuboCop<CR>
 
 " tab navigation like firefox
 nnoremap <C-S-tab> :tabprevious<CR>
