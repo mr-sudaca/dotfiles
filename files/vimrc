@@ -229,4 +229,12 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 
+
+" Split resizing
+nnoremap <S-Up> <C-W>-<C-W>-
+nnoremap <S-Down> <C-W>+<C-W>+
+nnoremap <S-Left> <C-W>><C-W>>
+nnoremap <S-Right> <C-W><<C-W><
+
+
 colorscheme railscasts
