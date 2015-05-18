@@ -63,7 +63,11 @@ Bundle 'ecomba/vim-ruby-refactoring'
 " :vnoremap <leader>rem  :RExtractMethod<cr>
 Bundle 'bbatsov/rubocop'
 Bundle 'ngmy/vim-rubocop'
-
+Bundle 'wkentaro/conque.vim'
+" :ConqueTerm bash
+" :ConqueTerm mysql -h localhost -u joe -p sock_collection
+" :ConqueTerm Powershell.exe
+" :ConqueTerm C:\Python27\python.exe
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -236,5 +240,11 @@ nnoremap <S-Down> <C-W>+<C-W>+
 nnoremap <S-Left> <C-W>><C-W>>
 nnoremap <S-Right> <C-W><<C-W><
 
+" ConqueTerm mappings
+map <Leader>b :ConqueTermSplit bash<CR>
+" :ConqueTerm bash
+" :ConqueTerm mysql -h localhost -u joe -p sock_collection
+" :ConqueTerm Powershell.exe
+" :ConqueTerm C:\Python27\python.exe
 
 colorscheme railscasts
