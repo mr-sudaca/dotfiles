@@ -23,7 +23,7 @@ Bundle 'tpope/vim-surround'
 " ysiw' :: Add single quotes to the current word
 Bundle 'tpope/vim-repeat' 
 " vim-repeat allows . to repeat changes to surrounding quotes
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
@@ -246,5 +246,15 @@ map <Leader>b :ConqueTermSplit bash<CR>
 " :ConqueTerm mysql -h localhost -u joe -p sock_collection
 " :ConqueTerm Powershell.exe
 " :ConqueTerm C:\Python27\python.exe
+
+" from http://stackoverflow.com/questions/1272007/refresh-all-files-in-buffer-from-disk-in-vim
+fun! PullAndRefresh()
+  set noconfirm
+  !git pull
+  bufdo e!
+  set confirm
+endfun
+
+nmap <leader>gr call PullAndRefresh()
 
 colorscheme railscasts
