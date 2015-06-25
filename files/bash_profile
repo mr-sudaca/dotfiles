@@ -83,6 +83,10 @@ function nomae(){
   bundle config --delete local.maestro_activity_engine
 }
 
+function nobelushi(){
+  bundle config --delete local.belushi
+}
+
 function nofarley(){
   bundle config --delete local.farley
 }
@@ -97,6 +101,10 @@ function domae(){
 
 function dofarley(){
   bundle config local.farley ~/vhl/farley
+}
+
+function dobelushi(){
+  bundle config local.belushi ~/vhl/belushi
 }
 
 function doclient(){
@@ -123,6 +131,7 @@ alias api='cd ~/vhl/api'
 alias client='cd ~/vhl/maestro_client'
 alias mae='cd ~/vhl/mae'
 alias farley='cd ~/vhl/farley'
+alias belushi='cd ~/vhl/belushi'
 alias roster='cd ~/vhl/rostering'
 alias govm='ssh jquintero@192.168.17.76'
 alias gomediter='ssh deploy@192.168.1.76'
