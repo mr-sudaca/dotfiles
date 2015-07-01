@@ -115,6 +115,15 @@ function ssa(){
  rails server -p3003
 }
 
+# in order to deal with nginx on linux (apt-get) and osx (homebrew)
+if [[ `uname` == 'Darwin' ]]; then
+  alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
+elif [[ `uname` == 'Linux' ]]; then
+  alias nxstart='sudo service nginx restart'
+fi
+
+
+
 export M3_APP_PATH="$HOME/vhl/m3"
 
 # User specific aliases and functions
