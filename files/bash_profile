@@ -115,12 +115,18 @@ function ssa(){
  rails server -p3003
 }
 
+# nginx stuff
+unamestring=`uname`
+ 
 # in order to deal with nginx on linux (apt-get) and osx (homebrew)
-if [[ `uname` == 'Darwin' ]]; then
+if [[ "$unamestring" == 'Darwin' ]]; then
   alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
-elif [[ `uname` == 'Linux' ]]; then
+elif [[ "$unamestring" == 'Linux' ]]; then
   alias nxstart='sudo service nginx restart'
 fi
+
+alias dlog='tail -f log/development.log'
+
 
 
 
