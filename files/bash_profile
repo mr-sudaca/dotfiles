@@ -167,7 +167,8 @@ alias docukes='cucumber features/ -fprogress --tags ~@watir'
 alias mega='gitpull;bundle install;rake db:migrate'
 # load tmux with 256 colors support (for vim)
 alias tmux='tmux -2'
-
+# simple http server
+alias server='python -m SimpleHTTPServer'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
