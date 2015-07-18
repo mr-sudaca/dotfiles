@@ -169,6 +169,8 @@ alias mega='gitpull;bundle install;rake db:migrate'
 alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
+# hydra access
+alias gohydra='ssh jquintero@38.111.26.116'
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
