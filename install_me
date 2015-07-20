@@ -2,6 +2,11 @@
 
 filenames = Dir.entries('files').select{ |filename| !['.', '..'].include?(filename) }
 
+plugins = {
+  '~/.tmux/plugins/tpm' => 'https://github.com/tmux-plugins/tpm' ,
+  '~/.vim/bundle/Vundle.vim' => 'https://github.com/gmarik/Vundle.vim.git'
+}
+
 filenames.each do |filename|
   puts "symlinking #{filename}... \n"
   symlink = File.join(Dir.home, ".#{filename}")
@@ -9,3 +14,12 @@ filenames.each do |filename|
   puts File.join(Dir.home, 'dotfiles', 'files', filename)
   `ln -s #{File.join(Dir.home, 'dotfiles', 'files', filename)} #{symlink}`
 end
+
+# install plugins for vim, tmux, etc
+plugins.each do |install_path, plugin_url|
+  unless File.exists?(File.expand_path(install_path))
+    puts "\ninstalling #{install_path}"
+    `git clone #{plugin_url} #{install_path}`
+  end
+end
+
