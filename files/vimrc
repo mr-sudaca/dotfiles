@@ -72,6 +72,9 @@ Bundle 'wkentaro/conque.vim'
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Bundle 'airblade/vim-gitgutter'
 
+" obsession.vim: continuously updated session files
+Bundle 'tpope/vim-obsession'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
