@@ -44,41 +44,14 @@ git_prompt ()
     echo " [$git_color$git_branch${c_reset}]"
 }
  
-#PROMPT_COMMAND='PS1="${c_user}\u${c_reset}@${c_user}\h${c_reset}:${c_path}\w => ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
 PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
  
-function cuke()
-{
-  cucumber "$@"
-}
-
-function sp()
-{
-  spec "$@"
-}
-
 function mif()
 {
   # laaaaaaazy way to retrieve media items for activity on CMS
   rake clone:production:media_item:for_activity ids="$@"
 }
  
-function ss(){
- rails s -p 3000
-}
- 
-function ss33(){
- rails s -p 3001
-}
- 
-function ssc(){
- rails s -p 5000
-}
-
-function ssr(){
- rails s -p 3005 -b0.0.0.0
-}
-
 function nomae(){
   bundle config --delete local.maestro_activity_engine
 }
@@ -109,10 +82,6 @@ function dobelushi(){
 
 function doclient(){
   bundle config local.maestro_client ~/vhl/maestro_client
-}
-
-function ssa(){
- rails server -p3003
 }
 
 # nginx stuff
