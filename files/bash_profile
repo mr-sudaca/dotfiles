@@ -51,39 +51,45 @@ function mif()
   # laaaaaaazy way to retrieve media items for activity on CMS
   rake clone:production:media_item:for_activity ids="$@"
 }
+
+# bundle local config
+function -(){
+  path_to_gem=~/vhl/"$1"
+  case "$1" in
+  "mae") gem_to_bundle="maestro_activity_engine"
+         ;;
+  "client") gem_to_bundle="maestro_client"
+            path_to_gem="~/vhl/maestro_client"
+            ;;
+  *) gem_to_bundle=$1
+     ;;
+  esac
+
+  if [ -d "$path_to_gem" ]; then
+    bundle config local."$gem_to_bundle" ~/vhl/"$path_to_gem"
+    bundle config local."$gem_to_bundle"
+  else
+    echo "I cannot bundle $path_to_gem"
+  fi
+}
+
+# remove bundle local config for a gem
+function --(){
+  path_to_gem=$1
+  case "$1" in
+  "mae") gem_to_bundle="maestro_activity_engine"
+         ;;
+  "client") gem_to_bundle="maestro_client"
+            path_to_gem="maestro_client"
+            ;;
+  *) gem_to_bundle=$1
+     ;;
+  esac
+
+  bundle config --delete local."$gem_to_bundle"
+  bundle config
+}
  
-function nomae(){
-  bundle config --delete local.maestro_activity_engine
-}
-
-function nobelushi(){
-  bundle config --delete local.belushi
-}
-
-function nofarley(){
-  bundle config --delete local.farley
-}
-
-function noclient(){
-  bundle config --delete local.maestro_client
-}
-
-function domae(){
-  bundle config local.maestro_activity_engine ~/vhl/mae
-}
-
-function dofarley(){
-  bundle config local.farley ~/vhl/farley
-}
-
-function dobelushi(){
-  bundle config local.belushi ~/vhl/belushi
-}
-
-function doclient(){
-  bundle config local.maestro_client ~/vhl/maestro_client
-}
-
 # nginx stuff
 unamestring=`uname`
  
