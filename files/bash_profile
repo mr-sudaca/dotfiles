@@ -2,145 +2,29 @@
 source ~/.bashrc
 
 # my stuff
-
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    c_reset='\[\e[0m\]'
-    c_user='\[\033[0;96m\]'
-    c_path='\[\e[0;95m\]'
-    c_git_clean='\[\e[0;32m\]'
-    c_git_dirty='\[\e[0;31m\]'
-    c_white='\[\033[0;37m\]'
-else
-    c_reset=
-    c_user=
-    c_path=
-    c_git_clean=
-    c_git_dirty=
-fi
- 
-stty ixany
-stty ixoff -ixon
-stty stop undef
-stty start undef
- 
-git_prompt ()
-{
-    if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        return 0
-    fi
- 
-    git_branch=$(git branch 2>/dev/null| sed -n '/^\*/s/^\* //p')
- 
-    if git diff --quiet 2>/dev/null >&2; then
-        git_color="${c_git_clean}"
-    else
-        git_color=${c_git_dirty}
-    fi
- 
-    echo " [$git_color$git_branch${c_reset}]"
-}
- 
-PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
- 
-function mif()
-{
-  # laaaaaaazy way to retrieve media items for activity on CMS
-  rake clone:production:media_item:for_activity ids="$@"
-}
-
-# bundle local config
-function -(){
-  path_to_gem=~/vhl/"$1"
-  case "$1" in
-  "mae") gem_to_bundle="maestro_activity_engine"
-         ;;
-  "client") gem_to_bundle="maestro_client"
-            path_to_gem="~/vhl/maestro_client"
-            ;;
-  *) gem_to_bundle=$1
-     ;;
-  esac
-
-  if [ -d "$path_to_gem" ]; then
-    bundle config local."$gem_to_bundle" ~/vhl/"$path_to_gem"
-    bundle config local."$gem_to_bundle"
-  else
-    echo "I cannot bundle $path_to_gem"
-  fi
-}
-
-# remove bundle local config for a gem
-function --(){
-  path_to_gem=$1
-  case "$1" in
-  "mae") gem_to_bundle="maestro_activity_engine"
-         ;;
-  "client") gem_to_bundle="maestro_client"
-            path_to_gem="maestro_client"
-            ;;
-  *) gem_to_bundle=$1
-     ;;
-  esac
-
-  bundle config --delete local."$gem_to_bundle"
-  bundle config
-}
-
-# go to qaenv servers!
-function qa(){
-  ssh deploy@qaenv"$1".vhl.dom  
-}
- 
-# nginx stuff
-unamestring=`uname`
- 
-# in order to deal with nginx on linux (apt-get) and osx (homebrew)
-if [[ "$unamestring" == 'Darwin' ]]; then
-  alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
-elif [[ "$unamestring" == 'Linux' ]]; then
-  alias nxstart='sudo service nginx stop; sudo service nginx start'
+if [ -f ~/.prompt ]; then
+  . ~/.prompt
 fi
 
-alias dlog='tail -f log/development.log'
+if [ -f ~/.vhl_profile ]; then
+  . ~/.vhl_profile
+fi
 
-
-export M3_APP_PATH="$HOME/vhl/m3"
+if [ -f ~/.nginx_profile ]; then
+  . ~/.nginx_profile
+fi
 
 # User specific aliases and functions
- 
 alias gitpull='git pull; git submodule update'
-alias m3='cd ~/vhl/m3'
-alias m2='cd ~/vhl/symphony'
-alias ua='cd ~/vhl/ua'
-alias cms='cd ~/vhl/cms'
-alias api='cd ~/vhl/api'
-alias client='cd ~/vhl/maestro_client'
-alias mae='cd ~/vhl/mae'
-alias farley='cd ~/vhl/farley'
-alias belushi='cd ~/vhl/belushi'
-alias roster='cd ~/vhl/rostering'
-alias govm='ssh jquintero@192.168.17.76'
-alias goextqa='ssh m2iter@192.168.1.202'
-alias gointqa='ssh m2iter@192.168.1.230'
-alias gomediter='ssh deploy@mediter.vhl.dom'
-alias gobositer='ssh deploy@bositer.vhl.dom'
-alias godemo='ssh deploy@demo.vhl.dom'
-alias gouvault='lftp ds-vista.uvault.com'
-alias gocms='echo "entering live cms";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cms.vhl.dom'
-alias gocmsiter='echo "entering cmsiter";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cmsiter.vhl.dom'
-alias dospecs='rake spec:activity_plugin; rake spec;'
-alias docukes='cucumber features/ -fprogress --tags ~@watir'
-alias mega='gitpull;bundle install;rake db:migrate'
+alias dlog='tail -f log/development.log'
 # load tmux with 256 colors support (for vim)
 alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
-# hydra access
-alias gohydra='ssh jquintero@38.111.26.116'
 
 if [[ "$unamestring" == 'Darwin' ]]; then
   source /Volumes/HD/Users/jhon/.iterm2_shell_integration.bash
@@ -149,14 +33,5 @@ fi
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-# spread the word... (history in multiple windows (like tmux)
-# http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
-# Avoid duplicates
-export HISTCONTROL=ignoredups:erasedups  
-# When the shell exits, append to the history file instead of overwriting it
-shopt -s histappend
-# After each command, append to the history file and reread it
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
