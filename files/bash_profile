@@ -1,21 +1,10 @@
-# we want to load bashrc first and then override some stuff, like prompt
 source ~/.bashrc
+source ~/.vhl_profile
+source ~/.nginx_profile
 
 # my stuff
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
-fi
-
-if [ -f ~/.prompt ]; then
-  . ~/.prompt
-fi
-
-if [ -f ~/.vhl_profile ]; then
-  . ~/.vhl_profile
-fi
-
-if [ -f ~/.nginx_profile ]; then
-  . ~/.nginx_profile
 fi
 
 # User specific aliases and functions
@@ -25,6 +14,7 @@ alias dlog='tail -f log/development.log'
 alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
+alias mega='gitpull;bundle install;rake db:migrate'
 
 if [[ "$unamestring" == 'Darwin' ]]; then
   source /Volumes/HD/Users/jhon/.iterm2_shell_integration.bash
@@ -35,3 +25,7 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# promp is getting override somewhere... let's source it here
+source ~/.prompt
+
