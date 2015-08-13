@@ -16,10 +16,6 @@ alias tmux='tmux -2'
 alias server='python -m SimpleHTTPServer'
 alias mega='gitpull;bundle install;rake db:migrate'
 
-if [[ "$unamestring" == 'Darwin' ]]; then
-  source /Volumes/HD/Users/jhon/.iterm2_shell_integration.bash
-fi
-
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
@@ -28,4 +24,3 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # promp is getting override somewhere... let's source it here
 source ~/.prompt
-
