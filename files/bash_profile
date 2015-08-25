@@ -7,15 +7,6 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-function mega()
-{
-  if [ -n "$1" ] # branch name passed
-    then
-      git co "$1"
-  fi
-  gitpull; bundle install; rake db:migrate
-}
-
 # User specific aliases and functions
 alias gitpull='git pull; git submodule update'
 alias dlog='tail -f log/development.log'
@@ -24,6 +15,15 @@ alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
 # alias mega='gitpull;bundle install;rake db:migrate'
+
+function mega()
+{
+  if [ -n "$1" ] # branch name passed
+    then
+      git co "$1"
+  fi
+  gitpull; bundle install; rake db:migrate
+}
 
 export PATH="/usr/local/sbin:$PATH"
 
