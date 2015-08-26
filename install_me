@@ -3,8 +3,8 @@
 filenames = Dir.entries('files').select{ |filename| !['.', '..'].include?(filename) }
 
 plugins = {
-  '~/.tmux/plugins/tpm' => 'https://github.com/tmux-plugins/tpm' ,
-  '~/.vim/bundle/Vundle.vim' => 'https://github.com/gmarik/Vundle.vim.git'
+  File.join(Dir.home, '.tmux', 'plugins', 'tpm') => 'https://github.com/tmux-plugins/tpm' ,
+  File.join(Dir.home, '.vim', 'bundle', 'Vundle.vim') => 'https://github.com/gmarik/Vundle.vim.git'
 }
 
 filenames.each do |filename|
