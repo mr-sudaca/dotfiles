@@ -146,14 +146,14 @@ highlight StatusLine ctermfg=yellow
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
                 
-function! <SID>StripTrailingWhitespaces()
-  let l = line(".")
-  let c = col(".")
-  %s/\s\+$//ge
-  call cursor(l, c)
-endfunction
-
-autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+" function! <SID>StripTrailingWhitespaces()
+"   let l = line(".")
+"   let c = col(".")
+"   %s/\s\+$//ge
+"   call cursor(l, c)
+" endfunction
+"
+" autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 
 " Disable AutoComplPop. 
@@ -197,18 +197,14 @@ map <C-h> :nohl<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
-" ctrl-n maps to :cn (next search result) 
-" ctrl-p maps to :cp (prev search result)
-" map <C-n> :cn<CR>
-" map <C-p> :cp<CR>
-
+" let me know if i'm over 80 cols
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 
 " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "let g:ctrlp_user_command = 'find %s -type f'  " MacOSX/Linux
-
-
 
 "Reselect visual block after indent/outdent
 vnoremap < <gv
