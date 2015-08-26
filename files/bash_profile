@@ -14,7 +14,6 @@ alias dlog='tail -f log/development.log'
 alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
-# alias mega='gitpull;bundle install;rake db:migrate'
 
 function mega()
 {

@@ -71,6 +71,5 @@ alias gocms='echo "entering live cms";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cm
 alias gocmsiter='echo "entering cmsiter";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cmsiter.vhl.dom'
 alias dospecs='rake spec:activity_plugin; rake spec;'
 alias docukes='cucumber features/ -fprogress --tags ~@watir'
-alias mega='gitpull;bundle install;rake db:migrate'
 # hydra access
 alias gohydra='ssh jquintero@38.111.26.116'
