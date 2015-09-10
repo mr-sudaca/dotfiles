@@ -23,7 +23,9 @@ Bundle 'tpope/vim-surround'
 " ysiw' :: Add single quotes to the current word
 Bundle 'tpope/vim-repeat' 
 " vim-repeat allows . to repeat changes to surrounding quotes
+
 Bundle 'ctrlpvim/ctrlp.vim'
+
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
@@ -206,6 +208,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 "let g:ctrlp_user_command = 'find %s -type f'  " MacOSX/Linux
 
+" If ag is available use it as filename list generator instead of 'find'
+if executable("ag")
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup  --ignore ''.git'' --ignore ''.DS_Store'' --ignore  ''node_modules'' --hidden -g ""'
+endif
+
 "Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
@@ -267,4 +275,7 @@ endfun
 
 nmap <leader>gr call PullAndRefresh()
 
+" let me know if i'm over 80 cols
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.\+/
 colorscheme railscasts
