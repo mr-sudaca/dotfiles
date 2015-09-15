@@ -275,7 +275,4 @@ endfun
 
 nmap <leader>gr call PullAndRefresh()
 
-" let me know if i'm over 80 cols
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
 colorscheme railscasts
