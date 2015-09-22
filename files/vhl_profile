@@ -6,20 +6,23 @@ function mif()
 
 # bundle local config
 function -(){
-  path_to_gem=~/vhl/"$1"
+  path_to_gem="$1"
+  base_path="`eval echo ~`"
   case "$1" in
   "mae") gem_to_bundle="maestro_activity_engine"
          ;;
   "client") gem_to_bundle="maestro_client"
-            path_to_gem="~/vhl/maestro_client"
+            path_to_gem="$base_path"/vhl/maestro_client
             ;;
-  *) gem_to_bundle=$1
-     ;;
+  *) gem_to_bundle="$1"
+    path_to_gem="$base_path"/vhl/"$1"
+    ;;
   esac
 
-  if [ -d "$path_to_gem" ]; then
-    bundle config local."$gem_to_bundle" ~/vhl/"$path_to_gem"
-    bundle config local."$gem_to_bundle"
+  # http://serverfault.com/questions/417252/check-if-directory-exists-using-home-character-in-bash-fails
+  if [ -d "`eval echo ${path_to_gem//>}`" ]; then
+    bundle config local.$gem_to_bundle $path_to_gem
+    bundle config local.$gem_to_bundle
   else
     echo "I cannot bundle $path_to_gem"
   fi
