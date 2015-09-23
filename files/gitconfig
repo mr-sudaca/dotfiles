@@ -1,0 +1,45 @@
+[user]
+        email = jquintero@altavistaed.com
+      	name  = Jhon Quintero
+
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+
+[color "diff"]
+        meta = yellow
+
+[alias]
+        st = status
+        ci = commit
+        br = branch
+        co = checkout
+        df = diff --word-diff=color
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr - %cn)%Creset' --abbrev-commit --date=relative
+        lgn = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr - %cn)%Creset' --abbrev-commit --date=relative --name-only
+        sub = submodule update
+        amendkeepmsg = commit --amend -C HEAD
+        amendnewmsg = commit --amend
+        unstage = reset HEAD
+        cim = commit -m
+[branch]
+        autosetupmerge = true
+        autosetuprebase = always
+[core]
+        whitespace = trailing-space,space-before-tab
+        filemode = false
+        editor=vim
+[rerere]
+        enabled = 1
+[push]
+        default = tracking
+[diff]
+        mnemonicprefix = true
+[merge]
+        stat = true
+
+[pager]
+        diff = less -r
+        log = less
+        show = less -r
