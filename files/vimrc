@@ -65,11 +65,6 @@ Bundle 'ecomba/vim-ruby-refactoring'
 " :vnoremap <leader>rem  :RExtractMethod<cr>
 Bundle 'bbatsov/rubocop'
 Bundle 'ngmy/vim-rubocop'
-Bundle 'wkentaro/conque.vim'
-" :ConqueTerm bash
-" :ConqueTerm mysql -h localhost -u joe -p sock_collection
-" :ConqueTerm Powershell.exe
-" :ConqueTerm C:\Python27\python.exe
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Bundle 'airblade/vim-gitgutter'
@@ -157,7 +152,6 @@ autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
 "
 " autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
-
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
 let g:neocomplete#enable_at_startup = 1
@@ -173,7 +167,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrows=0
 
-
 " weird chars fix
 let g:auto_type_info=0
 
@@ -183,14 +176,8 @@ let g:vimrubocop_config = '~/vhl/ruby-style-guide/vhl-rubocop.yml'
 let g:vimrubocop_keymap = 0
 nmap <Leader>r :RuboCop<CR>
 
-" tab navigation like firefox
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
+" tab 
 nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
-
 
 " clear highlighting
 map <C-h> :nohl<CR>
@@ -257,13 +244,6 @@ if &term =~ '^screen'
   execute "set <xRight>=\e[1;*C"
   execute "set <xLeft>=\e[1;*D"
 endif
-
-" ConqueTerm mappings
-map <Leader>b :ConqueTermSplit bash<CR>
-" :ConqueTerm bash
-" :ConqueTerm mysql -h localhost -u joe -p sock_collection
-" :ConqueTerm Powershell.exe
-" :ConqueTerm C:\Python27\python.exe
 
 " from http://stackoverflow.com/questions/1272007/refresh-all-files-in-buffer-from-disk-in-vim
 fun! PullAndRefresh()
