@@ -72,6 +72,9 @@ Bundle 'airblade/vim-gitgutter'
 " obsession.vim: continuously updated session files
 Bundle 'tpope/vim-obsession'
 
+"A vim plugin to display the indention levels with thin vertical lines
+Bundle 'Yggdroot/indentLine'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
@@ -170,7 +173,6 @@ let g:NERDTreeDirArrows=0
 " weird chars fix
 let g:auto_type_info=0
 
-
 " Rubocop config
 let g:vimrubocop_config = '~/vhl/ruby-style-guide/vhl-rubocop.yml'
 let g:vimrubocop_keymap = 0
@@ -186,9 +188,12 @@ map <C-h> :nohl<CR>
 map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
-" let me know if i'm over 80 cols
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.\+/
+" Yggdroot/indentLine config
+" let g:indentLine_char = '.'
+let g:indentLine_enabled = 0
+
+map <C-i> :IndentLinesToggle<CR>
+
 
 " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -204,7 +209,6 @@ endif
 "Reselect visual block after indent/outdent
 vnoremap < <gv
 vnoremap > >gv
-
 
 " RSpec.vim mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
