@@ -1,6 +1,3 @@
 { 
-  "extends": "airbnb/legacy",
-  "globals": {
-    "$": true
-  }
+  "extends": "airbnb/legacy"
 }
