@@ -10,6 +10,7 @@ function -(){
   base_path="`eval echo ~`"
   case "$1" in
   "mae") gem_to_bundle="maestro_activity_engine"
+         path_to_gem="$base_path"/vhl/mae
          ;;
   "client") gem_to_bundle="maestro_client"
             path_to_gem="$base_path"/vhl/maestro_client
