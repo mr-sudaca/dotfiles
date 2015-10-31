@@ -42,7 +42,7 @@ PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ($(rvm-prompt))${c_reset}
 unamestring=`uname`
 
 if [[ "$unamestring" == 'Darwin' ]]; then
-  source /Volumes/HD/Users/jhon/.iterm2_shell_integration.bash
+  source /Users/jhon/.iterm2_shell_integration.bash
 fi
 
 # spread the word... (history in multiple windows (like tmux)
