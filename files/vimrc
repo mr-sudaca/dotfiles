@@ -189,11 +189,7 @@ map <C-s> <esc>:w<CR>
 imap <C-s> <esc>:w<CR>
 
 " Yggdroot/indentLine config
-" let g:indentLine_char = '.'
 let g:indentLine_enabled = 0
-
-map <C-i> :IndentLinesToggle<CR>
-
 
 " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
