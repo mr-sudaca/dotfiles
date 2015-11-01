@@ -63,8 +63,6 @@ Bundle 'ecomba/vim-ruby-refactoring'
 " :vnoremap <leader>rrlv :RRenameLocalVariable<cr>
 " :vnoremap <leader>rriv :RRenameInstanceVariable<cr>
 " :vnoremap <leader>rem  :RExtractMethod<cr>
-Bundle 'bbatsov/rubocop'
-Bundle 'ngmy/vim-rubocop'
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Bundle 'airblade/vim-gitgutter'
