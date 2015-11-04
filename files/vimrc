@@ -171,11 +171,6 @@ let g:NERDTreeDirArrows=0
 " weird chars fix
 let g:auto_type_info=0
 
-" Rubocop config
-let g:vimrubocop_config = '~/vhl/ruby-style-guide/vhl-rubocop.yml'
-let g:vimrubocop_keymap = 0
-nmap <Leader>r :RuboCop<CR>
-
 " tab 
 nnoremap <C-t>     :tabnew<CR>
 
@@ -244,6 +239,11 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint'
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_ruby_rubocop_exec = 'rubocop'
+let g:syntastic_ruby_rubocop_args = '-c ~/vhl/ruby-style-guide/vhl-rubocop.yml'
+" let g:syntastic_debug = 1
+" let g:syntastic_debug_file = '~/tmp/syntastic.log'
+
 
 
 " Split resizing
