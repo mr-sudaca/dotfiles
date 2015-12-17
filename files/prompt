@@ -45,6 +45,12 @@ if [[ "$unamestring" == 'Darwin' ]]; then
   source /Users/jhon/.iterm2_shell_integration.bash
 fi
 
+if [[ "$unamestring" == 'Linux' ]]; then
+  export PATH="$HOME/.linuxbrew/bin:$PATH"
+  export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+  export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+fi
+
 # spread the word... (history in multiple windows (like tmux)
 # http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 # Avoid duplicates
