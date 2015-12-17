@@ -30,7 +30,10 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplete'
+
+" Themes
 Bundle 'jpo/vim-railscasts-theme'
+
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
@@ -144,14 +147,14 @@ highlight StatusLine ctermfg=yellow
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
                 
-" function! <SID>StripTrailingWhitespaces()
-"   let l = line(".")
-"   let c = col(".")
-"   %s/\s\+$//ge
-"   call cursor(l, c)
-" endfunction
-"
-" autocmd FileType ruby,eruby,cucumber autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
+function! <SID>StripTrailingWhitespaces()
+  let l = line(".")
+  let c = col(".")
+  %s/\s\+$//ge
+  call cursor(l, c)
+endfunction
+
+autocmd FileType ruby,eruby,cucumber,spec autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
 
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
@@ -234,7 +237,7 @@ set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exec = 'eslint'
