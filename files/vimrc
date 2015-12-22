@@ -273,4 +273,9 @@ endfun
 
 nmap <leader>gr call PullAndRefresh()
 
+" when to jump to the next line
+if exists("&colorcolumn")
+  set colorcolumn=80
+endif
+
 colorscheme railscasts
