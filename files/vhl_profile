@@ -51,6 +51,10 @@ function qa(){
   ssh deploy@qaenv"$1".vhl.dom  
 }
 
+# edit activity xml
+function x(){
+  vim $(rails runner "puts Activity.find($1).content_filepath")
+}
 
 export M3_APP_PATH="$HOME/vhl/m3"
 
