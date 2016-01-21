@@ -169,6 +169,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " NERDTreeTabs Toggle  
 map <C-n> :NERDTreeToggle<CR>
+" take me to the file location, now!
+nmap <leader>f :NERDTreeFind<CR>
 let g:NERDTreeDirArrows=0
 
 " weird chars fix
