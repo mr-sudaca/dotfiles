@@ -44,6 +44,7 @@ Plugin 'thoughtbot/vim-rspec'
 Bundle 'rking/ag.vim' 
 Bundle 'bling/vim-bufferline'
 Bundle 'bling/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
 Bundle 'vhladama/vim-rubyhash'
 " Commands for vim-rubyhash
 " <leader>rt :: stringify keys with double quotes
