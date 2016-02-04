@@ -5,6 +5,7 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     c_git_clean='\[\e[0;32m\]'
     c_git_dirty='\[\e[0;31m\]'
     c_white='\[\033[0;37m\]'
+    c_light_blue='\[\e[94m\]'
 else
     c_reset=
     c_user=
@@ -32,10 +33,10 @@ git_prompt ()
         git_color=${c_git_dirty}
     fi
  
-    echo " [$git_color$git_branch${c_reset}]"
+    echo " [$git_color$git_branch${c_reset}] "
 }
  
-PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
+PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ${c_reset}${c_light_blue}($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
 
 
 
