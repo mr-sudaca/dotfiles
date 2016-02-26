@@ -281,4 +281,20 @@ if exists("&colorcolumn")
   set colorcolumn=80
 endif
 
+" change double to single quotes
+nmap <leader>' cs"'
+
+" change single to double quotes
+nmap <leader>" cs"'
+
+" allow semicolon to serve as colon
+nnoremap ; :
+
+" faster ways to get out of insert mode
+imap ;; <esc>
+imap ii <esc>
+
+" also works in visual mode
+vmap ;; <esc>
+
 colorscheme railscasts
