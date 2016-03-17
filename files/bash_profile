@@ -26,6 +26,16 @@ function mega()
   gitpull; bundle install; rake db:migrate
 }
 
+# let's search for a string and open the results in vim!!!
+# params: 
+#   $1: string to search
+#   $2: search path (default to .)
+# TODO: Pass line number to vim
+function age()
+{
+  ag $1 --no-numbers -l $2 |xargs vim
+}
+
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
