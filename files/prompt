@@ -46,6 +46,12 @@ if [[ "$unamestring" == 'Darwin' ]]; then
   source /Users/jhon/.iterm2_shell_integration.bash
 fi
 
+if [[ "$unamestring" == 'Darwin' ]]; then
+  export CC=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/gcc-4.2
+  export CXX=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/g++-4.2
+  export CPP=/usr/local/Cellar/apple-gcc42/4.2.1-5666.3/bin/cpp-4.2
+fi
+
 # spread the word... (history in multiple windows (like tmux)
 # http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 # Avoid duplicates
