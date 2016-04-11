@@ -82,4 +82,4 @@ alias gocmsiter='echo "entering cmsiter";ssh -i ~/.ssh/maestrocms_rsa maestrocms
 alias dospecs='rake spec:activity_plugin; rake spec;'
 alias docukes='cucumber features/ -fprogress --tags ~@watir'
 # hydra access
-alias gohydra='ssh jquintero@38.111.26.116'
+alias gohydra='ssh -i ~/.ssh/hydra_rsa jquintero@hydra.vistahl.com'
