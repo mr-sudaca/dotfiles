@@ -31,6 +31,9 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplete'
 
+" plugin to navigate undo tree.
+Bundle 'sjl/gundo.vim'
+
 " Themes
 Bundle 'jpo/vim-railscasts-theme'
 
@@ -193,6 +196,8 @@ let g:indentLine_enabled = 0
 
 map <C-i> :IndentLinesToggle<CR>
 
+" gundo configuration
+nnoremap <leader>u :GundoToggle<CR>
 
 " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
