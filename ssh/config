@@ -1,0 +1,9 @@
+Host hydra
+HostName hydra.vistahl.com
+User jquintero
+ForwardAgent true
+ProxyCommand none
+IdentityFile ~/.ssh/hydra_rsa
+
+Host 10.* 192.168.18.* *.vhl.dom
+ProxyCommand ssh hydra -W %h:22
