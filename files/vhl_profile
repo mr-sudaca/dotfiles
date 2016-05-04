@@ -46,9 +46,15 @@ function --(){
   bundle config
 }
 
-# go to qaenv servers!
+# go to qaenv old servers!
 function qa(){
   ssh deploy@qaenv"$1".vhl.dom  
+}
+
+# go to new cloud servers
+# $1: qa server ip.
+function qac(){
+  ssh deploy@$1  
 }
 
 # edit activity xml
