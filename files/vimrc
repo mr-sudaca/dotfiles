@@ -80,6 +80,9 @@ Bundle 'tpope/vim-obsession'
 "A vim plugin to display the indention levels with thin vertical lines
 Bundle 'Yggdroot/indentLine'
 
+" Insert or delete brackets, parens, quotes in pair
+Bundle 'jiangmiao/auto-pairs'
+
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 
