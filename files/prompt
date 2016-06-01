@@ -43,7 +43,7 @@ PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ${c_reset}${c_light_blue}
 unamestring=`uname`
 
 if [[ "$unamestring" == 'Darwin' ]]; then
-  source /Users/jhon/.iterm2_shell_integration.bash
+  test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 fi
 
 if [[ "$unamestring" == 'Darwin' ]]; then
