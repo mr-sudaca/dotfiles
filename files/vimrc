@@ -36,6 +36,7 @@ Bundle 'sjl/gundo.vim'
 
 " Themes
 Bundle 'jpo/vim-railscasts-theme'
+Bundle 'mhartington/oceanic-next'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -137,6 +138,7 @@ set shiftwidth=2
 set expandtab
 set ai 
 set et
+set background=dark
 
 " Status line
 set laststatus=2
@@ -305,4 +307,5 @@ imap ii <esc>
 " also works in visual mode
 vmap ;; <esc>
 
-colorscheme railscasts
+" colorscheme railscasts
+colorscheme OceanicNext
