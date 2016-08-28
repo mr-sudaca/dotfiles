@@ -42,11 +42,6 @@ export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-# to fix [warn] kq_init: detected broken kqueue; not using.: File exists 
-# https://github.com/tony/tmuxp/issues/173
-export EVENT_NOKQUEUE=1
-
-
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # prompt is getting override somewhere... let's source it here
