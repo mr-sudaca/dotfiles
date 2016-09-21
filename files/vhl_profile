@@ -46,11 +46,6 @@ function --(){
   bundle config
 }
 
-# go to qaenv old servers!
-function qa(){
-  ssh deploy@qaenv"$1".vhl.dom  
-}
-
 # go to new cloud servers
 # $1: qa server ip.
 function qac(){
@@ -77,15 +72,7 @@ alias sbs='cd ~/vhl/submissions'
 alias belushi='cd ~/vhl/belushi'
 alias roster='cd ~/vhl/rostering'
 alias govm='ssh jquintero@192.168.17.76'
-alias goextqa='ssh m2iter@192.168.1.202'
-alias gointqa='ssh m2iter@192.168.1.230'
-alias gomediter='ssh deploy@mediter.vhl.dom'
-alias gobositer='ssh deploy@bositer.vhl.dom'
-alias godemo='ssh deploy@demo.vhl.dom'
-alias gouvault='lftp ds-vista.uvault.com'
 alias gocms='echo "entering live cms";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cms.vhl.dom'
 alias gocmsiter='echo "entering cmsiter";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cmsiter.vhl.dom'
-alias dospecs='rake spec:activity_plugin; rake spec;'
-alias docukes='cucumber features/ -fprogress --tags ~@watir'
 # hydra access
 alias gohydra='ssh -i ~/.ssh/hydra_rsa jquintero@hydra.vistahl.com'
