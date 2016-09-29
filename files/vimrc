@@ -31,9 +31,6 @@ Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplete'
 
-" plugin to navigate undo tree.
-Bundle 'sjl/gundo.vim'
-
 " Themes
 Bundle 'jpo/vim-railscasts-theme'
 Bundle 'mhartington/oceanic-next'
@@ -74,13 +71,10 @@ Bundle 'ecomba/vim-ruby-refactoring'
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Bundle 'airblade/vim-gitgutter'
-
 " obsession.vim: continuously updated session files
 Bundle 'tpope/vim-obsession'
-
 "A vim plugin to display the indention levels with thin vertical lines
 Bundle 'Yggdroot/indentLine'
-
 " Insert or delete brackets, parens, quotes in pair
 Bundle 'jiangmiao/auto-pairs'
 
@@ -200,9 +194,6 @@ imap <C-s> <esc>:w<CR>
 let g:indentLine_enabled = 0
 
 map <C-i> :IndentLinesToggle<CR>
-
-" gundo configuration
-nnoremap <leader>u :GundoToggle<CR>
 
 " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
