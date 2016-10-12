@@ -134,6 +134,8 @@ set ai
 set et
 set background=dark
 
+set clipboard=unnamedplus
+
 " Status line
 set laststatus=2
 set statusline=
