@@ -134,8 +134,6 @@ set ai
 set et
 set background=dark
 
-set clipboard=unnamedplus
-
 " Status line
 set laststatus=2
 set statusline=
@@ -300,6 +298,22 @@ imap ii <esc>
 
 " also works in visual mode
 vmap ;; <esc>
+
+" When compiled with +clipboard, if clipboard=unnamed,  y, d, and p will
+" use OS clipboard by default.  Without this set, use `"*y` to use os
+" clipboard.
+" set clipboard=unnamed
+
+" copy to OS clipboard.
+nmap <leader>y "*y
+vmap <leader>y "*y
+nmap <leader>yy "*yy
+
+" paste from OS clipboard
+nmap <leader>p "*p
+nmap <leader>P "*P
+vmap <leader>p "*p
+vmap <leader>P "*P"`"`"
 
 " colorscheme railscasts
 colorscheme OceanicNext
