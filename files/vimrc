@@ -32,7 +32,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplete'
 
 " Themes
-Bundle 'jpo/vim-railscasts-theme'
 Bundle 'mhartington/oceanic-next'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -71,8 +70,6 @@ Bundle 'ecomba/vim-ruby-refactoring'
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Bundle 'airblade/vim-gitgutter'
-" obsession.vim: continuously updated session files
-Bundle 'tpope/vim-obsession'
 "A vim plugin to display the indention levels with thin vertical lines
 Bundle 'Yggdroot/indentLine'
 " Insert or delete brackets, parens, quotes in pair
@@ -220,7 +217,6 @@ map <Leader>a :call RunAllSpecs()<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-" let g:airline_theme = 'luna'
 let g:airline_theme='oceanicnext'
 let g:airline_section_c = ''
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -315,5 +311,4 @@ nmap <leader>P "*P
 vmap <leader>p "*p
 vmap <leader>P "*P"`"`"
 
-" colorscheme railscasts
 colorscheme OceanicNext
