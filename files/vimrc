@@ -264,16 +264,6 @@ if &term =~ '^screen'
   execute "set <xLeft>=\e[1;*D"
 endif
 
-" from http://stackoverflow.com/questions/1272007/refresh-all-files-in-buffer-from-disk-in-vim
-fun! PullAndRefresh()
-  set noconfirm
-  !git pull
-  bufdo e!
-  set confirm
-endfun
-
-nmap <leader>gr call PullAndRefresh()
-
 " when to jump to the next line
 if exists("&colorcolumn")
   set colorcolumn=80
