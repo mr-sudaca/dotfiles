@@ -33,6 +33,7 @@ Bundle 'Shougo/neocomplete'
 
 " Themes
 Bundle 'mhartington/oceanic-next'
+Bundle 'altercation/vim-colors-solarized'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
 Bundle "tomtom/tlib_vim"
@@ -217,7 +218,8 @@ map <Leader>a :call RunAllSpecs()<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-let g:airline_theme='oceanicnext'
+" let g:airline_theme='oceanicnext'
+let g:airline_theme='luna'
 let g:airline_section_c = ''
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
@@ -285,20 +287,19 @@ imap ii <esc>
 " also works in visual mode
 vmap ;; <esc>
 
-" When compiled with +clipboard, if clipboard=unnamed,  y, d, and p will
-" use OS clipboard by default.  Without this set, use `"*y` to use os
-" clipboard.
-" set clipboard=unnamed
+" http://vimcasts.org/episodes/accessing-the-system-clipboard-from-vim/
 
 " copy to OS clipboard.
-nmap <leader>y "*y
-vmap <leader>y "*y
-nmap <leader>yy "*yy
+nmap <leader>y "+y
+vmap <leader>y "+y
+nmap <leader>yy "+yy
 
 " paste from OS clipboard
-nmap <leader>p "*p
-nmap <leader>P "*P
-vmap <leader>p "*p
-vmap <leader>P "*P"`"`"
+nmap <leader>p "+p
+nmap <leader>P "+P
+vmap <leader>p "+p
+vmap <leader>P "+P"`"`"
 
-colorscheme OceanicNext
+" colorscheme OceanicNext
+let g:solarized_termcolors=256
+colorscheme solarized
