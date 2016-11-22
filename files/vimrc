@@ -29,8 +29,7 @@ Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
-
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'Shougo/neocomplete'
 
 " Themes
 Bundle 'mhartington/oceanic-next'
@@ -160,6 +159,7 @@ autocmd FileType ruby,eruby,cucumber,spec autocmd BufWritePre <buffer> :call <SI
 
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
+let g:neocomplete#enable_at_startup = 1
 
 " switch windows with <leader> w
 nmap <leader>w <C-w><C-w>
