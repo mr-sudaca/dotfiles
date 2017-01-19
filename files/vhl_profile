@@ -76,3 +76,5 @@ alias gocms='echo "entering live cms";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cm
 alias gocmsiter='echo "entering cmsiter";ssh -i ~/.ssh/maestrocms_rsa maestrocms@cmsiter.vhl.dom'
 # hydra access
 alias gohydra='ssh -i ~/.ssh/hydra_rsa jquintero@hydra.vistahl.com'
+# no need to sudo in osx, though...
+alias cmbstart="cd ~/cmb/docker && docker-compose start && cd -"
