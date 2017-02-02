@@ -40,7 +40,7 @@ Bundle "tomtom/tlib_vim"
 Bundle "garbas/vim-snipmate"
 Bundle "honza/vim-snippets"
 Bundle "claco/jasmine.vim"
-Bundle "scrooloose/syntastic"
+Plugin 'w0rp/ale' " Asynchronous Lint Engine
 Plugin 'thoughtbot/vim-rspec'
 Bundle 'rking/ag.vim' 
 Bundle 'bling/vim-bufferline'
@@ -233,25 +233,6 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 
-" Syntastic config
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exec = 'eslint'
-let g:syntastic_ruby_checkers = ['rubocop']
-let g:syntastic_ruby_rubocop_exec = 'rubocop'
-let g:syntastic_ruby_rubocop_args = '-c ~/vhl/ruby-style-guide/vhl-rubocop.yml'
-" let g:syntastic_debug = 1
-" let g:syntastic_debug_file = '~/tmp/syntastic.log'
-
-
-
 " Split resizing
 nnoremap <S-Up> <C-W>-<C-W>-
 nnoremap <S-Down> <C-W>+<C-W>+
@@ -299,6 +280,10 @@ nmap <leader>p "+p
 nmap <leader>P "+P
 vmap <leader>p "+p
 vmap <leader>P "+P"`"`"
+
+" remove ALE background colors, those make a mess when running specs
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
 
 " colorscheme OceanicNext
 let g:solarized_termcolors=256
