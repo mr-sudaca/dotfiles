@@ -8,7 +8,7 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # User specific aliases and functions
-alias gitpull='git pull; git submodule update'
+alias gp='git pull; git submodule update'
 alias dlog='tail -f log/development.log'
 # load tmux with 256 colors support (for vim)
 alias tmux='tmux -2'
@@ -23,7 +23,7 @@ function mega()
     then
       git co "$1"
   fi
-  gitpull; bundle install; rake db:migrate
+  gp; bundle install; rake db:migrate
 }
 
 # let's search for a string and open the results in vim!!!
