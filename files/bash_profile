@@ -1,5 +1,4 @@
 source ~/.bashrc
-source ~/.vhl_profile
 source ~/.nginx_profile
 
 # my stuff

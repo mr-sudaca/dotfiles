@@ -39,13 +39,6 @@ git_prompt ()
 PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ${c_reset}${c_light_blue}($(rvm-prompt))${c_reset}$(git_prompt)\$ "'
 
 
-
-unamestring=`uname`
-
-if [[ "$unamestring" == 'Darwin' ]]; then
-  test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
-fi
-
 # spread the word... (history in multiple windows (like tmux)
 # http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 # Avoid duplicates
