@@ -32,7 +32,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'Shougo/neocomplete'
 
 " Themes
-Bundle 'mhartington/oceanic-next'
 Bundle 'altercation/vim-colors-solarized'
 
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -218,7 +217,6 @@ map <Leader>a :call RunAllSpecs()<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-" let g:airline_theme='oceanicnext'
 let g:airline_theme='solarized'
 let g:airline_section_c = ''
 let g:airline#extensions#tabline#buffer_idx_mode = 1
@@ -285,6 +283,5 @@ vmap <leader>P "+P"`"`"
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
-" colorscheme OceanicNext
 let g:solarized_termcolors=256
 colorscheme solarized
