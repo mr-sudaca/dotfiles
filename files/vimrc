@@ -129,7 +129,7 @@ set shiftwidth=2
 set expandtab
 set ai 
 set et
-set background=light
+set background=dark
 
 " Status line
 set laststatus=2
