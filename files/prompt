@@ -43,6 +43,7 @@ PROMPT_COMMAND='PS1="${c_user}\u${c_reset}:${c_path}\w ${c_reset}${c_light_blue}
 # http://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows
 # Avoid duplicates
 export HISTCONTROL=ignoredups:erasedups  
+export HISTFILESIZE=10000000
 # When the shell exits, append to the history file instead of overwriting it
 shopt -s histappend
 # After each command, append to the history file and reread it
