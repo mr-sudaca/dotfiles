@@ -1,5 +1,4 @@
 source ~/.bashrc
-source ~/.nginx_profile
 
 # my stuff
 if [ -f ~/.git-completion.bash ]; then
@@ -15,6 +14,16 @@ alias tmux='tmux -2'
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -lG'
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
+
+unamestring=`uname`
+ 
+# in order to deal with nginx on linux (apt-get) and osx (homebrew)
+if [[ "$unamestring" == 'Darwin' ]]; then
+  alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
+  alias ctags="`brew --prefix`/bin/ctags"
+elif [[ "$unamestring" == 'Linux' ]]; then
+  alias nxstart='sudo service nginx stop; sudo service nginx start'
+fi
 
 
 function mega()
