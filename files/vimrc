@@ -14,48 +14,48 @@ Plugin 'gmarik/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
 " Commands for vim-surround
 " cs"' :: Replace double quotes with single
 " cs'" :: Replace single with double quotes
 " ds"  :: Strip leading and trailing double quotes
 " ysiw' :: Add single quotes to the current word
-Bundle 'tpope/vim-repeat' 
+Plugin 'tpope/vim-repeat' 
 " vim-repeat allows . to repeat changes to surrounding quotes
 
-Bundle 'ctrlpvim/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-rails'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'Shougo/neocomplete'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'Shougo/neocomplete'
 
 " Themes
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'altercation/vim-colors-solarized'
 
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "garbas/vim-snipmate"
-Bundle "honza/vim-snippets"
-Bundle "claco/jasmine.vim"
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'tomtom/tlib_vim'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'claco/jasmine.vim'
 Plugin 'w0rp/ale' " Asynchronous Lint Engine
 Plugin 'thoughtbot/vim-rspec'
-Bundle 'rking/ag.vim' 
-Bundle 'bling/vim-bufferline'
-Bundle 'bling/vim-airline'
-Bundle 'vim-airline/vim-airline-themes'
-Bundle 'vhladama/vim-rubyhash'
+Plugin 'rking/ag.vim' 
+Plugin 'bling/vim-bufferline'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vhladama/vim-rubyhash'
 " Commands for vim-rubyhash
 " <leader>rt :: stringify keys with double quotes
 " <leader>rs :: symbolize keys
 " <leader>rq :: stringify keys with single quotes
 " <leader>rr :: turns hash into new-style ruby hash
-Bundle 'tomtom/tcomment_vim'
+Plugin 'tomtom/tcomment_vim'
 " Commands for tcomment_vim
 " gcc :: Toggle comment for the curent line
 " gc{motion} ::Toggle comments for motion
-Bundle 'ecomba/vim-ruby-refactoring'
+Plugin 'ecomba/vim-ruby-refactoring'
 " See https://github.com/ecomba/vim-ruby-refactoring for commands and keymaps                                      
 " Main shortcut: :nnoremap <leader>rel  :RExtractLet<cr>
 " :nnoremap <leader>rap  :RAddParameter<cr>
@@ -69,11 +69,11 @@ Bundle 'ecomba/vim-ruby-refactoring'
 " :vnoremap <leader>rem  :RExtractMethod<cr>
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 "A vim plugin to display the indention levels with thin vertical lines
-Bundle 'Yggdroot/indentLine'
+Plugin 'Yggdroot/indentLine'
 " Insert or delete brackets, parens, quotes in pair
-Bundle 'jiangmiao/auto-pairs'
+Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
