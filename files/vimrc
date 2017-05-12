@@ -265,7 +265,6 @@ nnoremap ; :
 
 " faster ways to get out of insert mode
 imap ;; <esc>
-imap ii <esc>
 
 " also works in visual mode
 vmap ;; <esc>
