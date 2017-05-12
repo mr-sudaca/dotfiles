@@ -34,6 +34,9 @@ Plugin 'Shougo/neocomplete'
 " Themes
 Plugin 'altercation/vim-colors-solarized'
 
+" Slim syntax highlight
+Plugin 'slim-template/vim-slim.git'
+
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'tomtom/tlib_vim'
 Plugin 'garbas/vim-snipmate'
@@ -146,6 +149,7 @@ set statusline+=%{fugitive#statusline()}
 highlight StatusLine ctermfg=yellow
 
 autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+autocmd BufNewFile,BufRead *.slim set ft=slim
                 
 " function! <SID>StripTrailingWhitespaces()
 "   let l = line(".")
