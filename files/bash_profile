@@ -8,6 +8,7 @@ fi
 # User specific aliases and functions
 alias gp='git pull; git submodule update'
 alias dlog='tail -f log/development.log'
+alias tlog='tail -f log/test.log'
 # load tmux with 256 colors support (for vim)
 alias tmux='tmux -2'
 # simple http server
@@ -17,7 +18,7 @@ alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
 
 unamestring=`uname`
  
-# in order to deal with nginx on linux (apt-get) and osx (homebrew)
+# osx aliases / linux aliases
 if [[ "$unamestring" == 'Darwin' ]]; then
   alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
   alias ctags="`brew --prefix`/bin/ctags"
