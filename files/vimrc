@@ -133,6 +133,7 @@ set expandtab
 set ai 
 set et
 set background=dark
+set foldmethod=indent
 
 " Status line
 set laststatus=2
