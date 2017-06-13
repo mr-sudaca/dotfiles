@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+class WhatsPlaying
+  attr_accessor :app
+
+  def initialize(app)
+    self.app = app
+  end
+
+  def self.status(app)
+    new(app).status
+  end
+
+  def status
+    return "this script is meant to run on macOS/OSX, sorry" unless mac?
+    return "#{app}: idle" unless running?
+
+    "#{playing_status}: #{artist} - #{song}" if artist != '' && song != ''
+  end
+
+  private
+
+  def running?
+    # calling osascript will actually open the application, so
+    # it's necessary to check if app process is running. For iTunes, there's
+    # always a helper process running, so I just check if there are 2 o more
+    # processes. For Spotify, I just check for 1 process that match the name.
+    # How to ps without adding command to results:
+    # https://unix.stackexchange.com/a/74186
+    `ps -ax |ag "[/]Applications/#{app}.app/Contents/MacOS/#{app}"`.split("\n").size >= app_processes_count
+  end
+
+  def app_processes_count
+    if app == 'iTunes'
+      2
+    elsif app == 'Spotify'
+      1
+    end
+  end
+
+  def mac?
+    !(/darwin/ =~ RUBY_PLATFORM).nil?
+  end
+
+  def get_status(field)
+    `osascript -e 'tell application "#{app}" to #{field} of current track as string'`.chop
+  end
+
+  def artist
+    @artist ||= get_status('artist')
+  end
+
+  def song
+    @song ||= get_status('name')
+  end
+
+  def playing_status
+    @playing_status ||= `osascript -e 'tell application "#{app}" to player state as string'`.chop.capitalize
+  end
+end
+
+puts "#{WhatsPlaying.status('iTunes')} | #{WhatsPlaying.status('Spotify')}"
