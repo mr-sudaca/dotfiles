@@ -23,5 +23,5 @@ plugins.each do |install_path, plugin_url|
 end
 
 # create folders needed for packages like npm
-`mkdir #{File.join(Dir.home, '.npm_packages')}`
+`mkdir #{File.join(Dir.home, '.npm-packages')}`
 
