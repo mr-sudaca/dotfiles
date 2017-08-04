@@ -287,5 +287,8 @@ vmap <leader>P "+P"`"`"
 highlight clear ALEErrorSign
 highlight clear ALEWarningSign
 
+" ale configs
+let g:ale_lint_on_text_changed="normal"
+
 let g:solarized_termcolors=256
 colorscheme solarized
