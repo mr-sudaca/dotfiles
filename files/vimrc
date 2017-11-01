@@ -24,6 +24,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat' 
 " vim-repeat allows . to repeat changes to surrounding quotes
 
+" rhubarb.vim: GitHub extension for fugitive.vim
+Plugin 'tpope/vim-rhubarb'  
+
 Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'scrooloose/nerdtree'
