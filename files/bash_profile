@@ -33,17 +33,19 @@ function mega()
     then
       git co "$1"
   fi
-  gp; bundle install; rake db:migrate
+  gp; bundle install; rake db:migrate; rake db:migrate RAILS_ENV=test; git co .
 }
 
-# let's search for a string and open the results in vim!!!
-# params: 
-#   $1: string to search
-#   $2: search path (default to .)
-# TODO: Pass line number to vim
-function age()
+# new feature branch from current branch
+function newf()
 {
-  ag $1 --no-numbers -l $2 |xargs vim
+  git co -b feature/#"$1"; git push -u origin feature/#"$1"
+}
+
+# new bug branch from current branch
+function newb()
+{
+  git co -b bug/#"$1"; git push -u origin bug/#"$1"
 }
 
 export PATH="$HOME/.npm-packages/bin:$PATH"
