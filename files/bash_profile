@@ -15,6 +15,7 @@ alias tmux='tmux -2'
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -lG'
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
+alias rubocop='rubocop -c ~/.rubocop.yml'
 
 unamestring=`uname`
  
