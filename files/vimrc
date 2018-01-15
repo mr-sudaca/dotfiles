@@ -219,7 +219,6 @@ vnoremap > >gv
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
 
 " airline stuff
 let g:airline#extensions#tabline#enabled = 1
@@ -286,12 +285,10 @@ nmap <leader>P "+P
 vmap <leader>p "+p
 vmap <leader>P "+P"`"`"
 
-" remove ALE background colors, those make a mess when running specs
-highlight clear ALEErrorSign
-highlight clear ALEWarningSign
-
 " ale configs
-let g:ale_lint_on_text_changed="normal"
+let g:ale_lint_on_text_changed="never"
+let g:ale_lint_on_enter=0
+map <Leader>a :ALELint<CR>
 
 let g:solarized_termcolors=256
 colorscheme solarized
