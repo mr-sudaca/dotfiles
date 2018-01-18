@@ -11,10 +11,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+" Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
+" A git commit browser in Vim
+Plugin 'junegunn/gv.vim'
 Plugin 'tpope/vim-surround'
 " Commands for vim-surround
 " cs"' :: Replace double quotes with single
