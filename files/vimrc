@@ -1,6 +1,3 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -98,17 +95,13 @@ call vundle#end()            " required
 " Put your non-Plugin stuff after this line
 
 set number
-set t_Co=256
-filetype indent on    " Enable filetype-specific indenting
-filetype plugin on    " Enable filetype-specific plugins
+filetype plugin indent on    " Enable filetype-specific plugins, filetype-specific indenting
 
 syntax on             " Enable syntax highlighting
 
 let mapleader = ","
 
 set autoindent
-set smartindent
-set showmode
 set showcmd
 set wildmenu
 set wildmode=list:longest
@@ -130,7 +123,7 @@ set backupdir=/tmp
 set directory=/tmp "don't clutter my dirs with swp and tmp files
 
 set backspace=indent,eol,start
-set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set expandtab
 set ai 
@@ -152,8 +145,11 @@ set statusline+=%{fugitive#statusline()}
 
 highlight StatusLine ctermfg=yellow
 
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd BufNewFile,BufRead *.slim set ft=slim
+augroup ruby_setup
+  autocmd!
+  autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+  autocmd BufNewFile,BufRead *.slim set ft=slim
+augroup END
                 
 " function! <SID>StripTrailingWhitespaces()
 "   let l = line(".")
