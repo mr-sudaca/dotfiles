@@ -16,6 +16,7 @@ alias server='python -m SimpleHTTPServer'
 alias ll='ls -lG'
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
 alias rubocop='rubocop -c ~/.rubocop.yml'
+alias rc='DISABLE_PRY_RAILS=1 rails c'
 
 unamestring=`uname`
  
