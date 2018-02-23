@@ -26,6 +26,9 @@ Plugin 'tpope/vim-rhubarb'
 
 Plugin 'ctrlpvim/ctrlp.vim'
 
+" Make the yanked region apparent!
+Plugin 'machakann/vim-highlightedyank'
+
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
