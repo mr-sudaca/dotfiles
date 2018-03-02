@@ -284,6 +284,12 @@ nmap <leader>P "+P
 vmap <leader>p "+p
 vmap <leader>P "+P"`"`"
 
+
+" Format and then going back to where I was 
+" https://www.reddit.com/r/vim/comments/7yzblt/what_was_your_best_vimrc_addition/dul39y7/
+nnoremap g= mmgg=G`m
+nnoremap gQ mmgggqG`m
+
 " ale configs
 let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_enter=0
