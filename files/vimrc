@@ -295,5 +295,5 @@ let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_enter=0
 map <Leader>a :ALELint<CR>
 
-let g:solarized_termcolors=256
+" let g:solarized_termcolors=256
 colorscheme solarized
