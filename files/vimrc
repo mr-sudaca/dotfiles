@@ -129,8 +129,6 @@ set backspace=indent,eol,start
 set softtabstop=2
 set shiftwidth=2
 set expandtab
-set ai 
-set et
 set background=dark
 set foldmethod=indent
 
