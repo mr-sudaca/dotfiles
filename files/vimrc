@@ -32,7 +32,14 @@ Plugin 'machakann/vim-highlightedyank'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'Shougo/neocomplete'
+
+" Start - Autocomplete plugin (these plugins should be installed together)
+  " pip3 install --upgrade neovim -> In order to make this work
+Plugin 'Shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'
+Plugin 'roxma/vim-hug-neovim-rpc'
+" End - Autocomplete plugin
+
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
@@ -163,7 +170,7 @@ augroup END
 
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
-let g:neocomplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 
 " switch windows with <leader> w
 nmap <leader>w <C-w><C-w>
