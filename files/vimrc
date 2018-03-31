@@ -33,13 +33,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
 
-" Start - Autocomplete plugin (these plugins should be installed together)
-  " pip3 install --upgrade neovim -> In order to make this work
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'
-Plugin 'roxma/vim-hug-neovim-rpc'
-" End - Autocomplete plugin
-
+Plugin 'ajh17/VimCompletesMe'
+Plugin 'ludovicchabant/vim-gutentags'
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
@@ -158,7 +153,11 @@ augroup ruby_setup
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd BufNewFile,BufRead *.slim set ft=slim
 augroup END
-                
+
+augroup autocomplete_setup
+  autocmd FileType vim let b:vcm_tab_complete = 'vim'
+augroup END
+
 " function! <SID>StripTrailingWhitespaces()
 "   let l = line(".")
 "   let c = col(".")
@@ -170,7 +169,6 @@ augroup END
 
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
-let g:deoplete#enable_at_startup = 1
 
 " switch windows with <leader> w
 nmap <leader>w <C-w><C-w>
