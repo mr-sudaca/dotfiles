@@ -42,9 +42,6 @@ Plugin 'altercation/vim-colors-solarized'
 " Slim syntax highlight
 Plugin 'slim-template/vim-slim.git'
 
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'claco/jasmine.vim'
 Plugin 'w0rp/ale' " Asynchronous Lint Engine
