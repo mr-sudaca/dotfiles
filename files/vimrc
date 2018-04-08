@@ -130,6 +130,7 @@ set shiftwidth=2
 set expandtab
 set background=dark
 set foldmethod=indent
+set nrformats=
 
 " Status line
 set laststatus=2
