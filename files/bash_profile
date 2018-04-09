@@ -35,7 +35,7 @@ function mega()
     then
       git co "$1"
   fi
-  gp; bundle install; rake db:migrate; rake db:migrate RAILS_ENV=test; git co .
+  gp; bundle install; rake db:migrate; rake db:migrate RAILS_ENV=test
 }
 
 # new feature branch from current branch
