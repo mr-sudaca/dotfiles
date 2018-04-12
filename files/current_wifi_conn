@@ -1,0 +1,16 @@
+#!/usr/bin/env ruby
+
+class CurrentWifiConnection
+  def self.get
+    return 'this script is meant to run on macOS/OSX, sorry' unless mac?
+
+    matches = `networksetup -getairportnetwork en0`.match(/Network: .+/)
+    matches && matches[0] || 'Not connected via wifi.'
+  end
+
+  def self.mac?
+    !(/darwin/ =~ RUBY_PLATFORM).nil?
+  end
+end
+
+puts CurrentWifiConnection.get
