@@ -1,6 +1,7 @@
 [user]
         email = jhonhquintero@gmail.com
-      	name  = Jhon Quintero
+        name  = Jhon Quintero
+        signingkey = D47B0FF074703D6E8163FD37D439966ED3F724FC
 
 [color]
         diff = auto
@@ -43,3 +44,7 @@
         diff = less -r
         log = less
         show = less -r
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg
