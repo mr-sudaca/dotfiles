@@ -58,6 +58,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PATH="$PATH:$(go env GOPATH)/bin"
 
+export GPG_TTY=$(tty)
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # prompt is getting override somewhere... let's source it here
