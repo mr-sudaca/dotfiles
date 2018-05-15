@@ -184,9 +184,6 @@ let g:NERDTreeDirArrows=0
 " weird chars fix
 let g:auto_type_info=0
 
-" tab 
-nnoremap <C-t>     :tabnew<CR>
-
 " clear highlighting
 map <C-h> :nohl<CR>
 
