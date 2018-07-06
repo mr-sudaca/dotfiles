@@ -77,8 +77,6 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'airblade/vim-gitgutter'
 "A vim plugin to display the indention levels with thin vertical lines
 Plugin 'Yggdroot/indentLine'
-" Insert or delete brackets, parens, quotes in pair
-Plugin 'jiangmiao/auto-pairs'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
