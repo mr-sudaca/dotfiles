@@ -47,8 +47,7 @@ Plugin 'claco/jasmine.vim'
 Plugin 'w0rp/ale' " Asynchronous Lint Engine
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'rking/ag.vim' 
-Plugin 'bling/vim-bufferline'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vhladama/vim-rubyhash'
 " Commands for vim-rubyhash
@@ -101,6 +100,7 @@ syntax on             " Enable syntax highlighting
 
 let mapleader = ","
 
+set encoding=utf-8
 set autoindent
 set showcmd
 set wildmenu
@@ -177,7 +177,8 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 map <C-n> :NERDTreeToggle<CR>
 " take me to the file location, now!
 nmap <leader>f :NERDTreeFind<CR>
-let g:NERDTreeDirArrows=0
+" let NERDTreeDirArrowExpandable = "+"
+" let NERDTreeDirArrowCollapsible = "~"
 
 " weird chars fix
 let g:auto_type_info=0
