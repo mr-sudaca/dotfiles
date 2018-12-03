@@ -7,32 +7,26 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-
 " Git wrapper so awesome, it should be illegal
 Plugin 'tpope/vim-fugitive'
 " A git commit browser in Vim
 Plugin 'junegunn/gv.vim'
-Plugin 'tpope/vim-surround'
 " Commands for vim-surround
 " cs"' :: Replace double quotes with single
 " cs'" :: Replace single with double quotes
 " ds"  :: Strip leading and trailing double quotes
 " ysiw' :: Add single quotes to the current word
-Plugin 'tpope/vim-repeat' 
+Plugin 'tpope/vim-surround'
 " vim-repeat allows . to repeat changes to surrounding quotes
-
+Plugin 'tpope/vim-repeat' 
 " rhubarb.vim: GitHub extension for fugitive.vim
 Plugin 'tpope/vim-rhubarb'  
-
 Plugin 'ctrlpvim/ctrlp.vim'
-
 " Make the yanked region apparent!
 Plugin 'machakann/vim-highlightedyank'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
-
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'ludovicchabant/vim-gutentags'
 
@@ -43,7 +37,6 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'slim-template/vim-slim.git'
 
 Plugin 'honza/vim-snippets'
-Plugin 'claco/jasmine.vim'
 Plugin 'w0rp/ale' " Asynchronous Lint Engine
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'rking/ag.vim' 
@@ -177,8 +170,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 map <C-n> :NERDTreeToggle<CR>
 " take me to the file location, now!
 nmap <leader>f :NERDTreeFind<CR>
-" let NERDTreeDirArrowExpandable = "+"
-" let NERDTreeDirArrowCollapsible = "~"
 
 " weird chars fix
 let g:auto_type_info=0
