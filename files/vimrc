@@ -32,6 +32,9 @@ Plugin 'ludovicchabant/vim-gutentags'
 
 " Themes
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'patstockwell/vim-monokai-tasty'
+Plugin 'jacoborus/tender.vim'
+Plugin 'morhetz/gruvbox'
 
 " Slim syntax highlight
 Plugin 'slim-template/vim-slim.git'
@@ -211,7 +214,7 @@ map <Leader>l :call RunLastSpec()<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 let g:airline_section_c = ''
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline_powerline_fonts = 1
@@ -284,4 +287,4 @@ let g:ale_lint_on_enter=0
 map <Leader>a :ALELint<CR>
 
 " let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme gruvbox
