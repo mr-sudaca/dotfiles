@@ -31,9 +31,9 @@ Plugin 'ajh17/VimCompletesMe'
 Plugin 'ludovicchabant/vim-gutentags'
 
 " Themes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'patstockwell/vim-monokai-tasty'
-Plugin 'jacoborus/tender.vim'
+" Plugin 'altercation/vim-colors-solarized'
+" Plugin 'patstockwell/vim-monokai-tasty'
+" Plugin 'jacoborus/tender.vim'
 Plugin 'morhetz/gruvbox'
 
 " Slim syntax highlight
