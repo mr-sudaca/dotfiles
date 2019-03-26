@@ -18,6 +18,7 @@ alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
 alias rubocop='rubocop -c ~/.rubocop.yml'
 alias rc='DISABLE_PRY_RAILS=1 rails c'
 alias t='todo.sh -d ~/.todo.cfg'
+alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
 
 unamestring=`uname`
  
@@ -30,13 +31,13 @@ elif [[ "$unamestring" == 'Linux' ]]; then
 fi
 
 
-function mega()
+function gp()
 {
   if [ -n "$1" ] # branch name passed
     then
       git co "$1"
   fi
-  gp; bundle install; rake db:migrate; rake db:migrate RAILS_ENV=test
+  gp; bundle install
 }
 
 # new feature branch from current branch
