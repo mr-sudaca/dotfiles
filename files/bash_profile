@@ -6,7 +6,6 @@ if [ -f ~/.git-completion.bash ]; then
 fi
 
 # User specific aliases and functions
-alias gp='git pull; git submodule update'
 alias dlog='tail -f log/development.log'
 alias tlog='tail -f log/test.log'
 # load tmux with 256 colors support (for vim)
@@ -37,7 +36,7 @@ function gp()
     then
       git co "$1"
   fi
-  gp; bundle install
+  git pull; git submodule update; bundle install
 }
 
 # new feature branch from current branch
