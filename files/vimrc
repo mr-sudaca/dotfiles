@@ -113,7 +113,7 @@ set autoread
 set undolevels=1000
 
 set backupdir=/tmp   
-set directory=/tmp "don't clutter my dirs with swp and tmp files
+set directory=/tmp// "don't clutter my dirs with swp and tmp files
 
 set backspace=indent,eol,start
 set softtabstop=2
