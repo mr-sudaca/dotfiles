@@ -12,7 +12,7 @@ alias tlog='tail -f log/test.log'
 alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
-alias ll='ls -lG'
+alias ll='ls -alG'
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
 alias rubocop='rubocop -c ~/.rubocop.yml'
 alias rc='DISABLE_PRY_RAILS=1 rails c'
