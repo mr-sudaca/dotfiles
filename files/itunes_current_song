@@ -13,9 +13,9 @@ class WhatsPlaying
 
   def status
     return "this script is meant to run on macOS/OSX, sorry" unless mac?
-    return "#{app}: idle" unless running?
+    return "(#{app}) idle" unless running?
 
-    "#{playing_status}: #{artist} - #{song}" if artist != '' && song != ''
+    "(#{app}) #{playing_status}: #{artist} - #{song}" if artist != '' && song != ''
   end
 
   private
