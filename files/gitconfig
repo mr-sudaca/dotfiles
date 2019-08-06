@@ -1,7 +1,7 @@
 [user]
         email = jhon@notgmail.co
         name  = Jhon Quintero
-        signingkey = D47B0FF074703D6E8163FD37D439966ED3F724FC
+        signingkey = ED59ACF6E40035D0022381E5B40034A13EC83EAA
 
 [color]
         diff = auto
