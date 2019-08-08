@@ -6,3 +6,4 @@ export GRAILS_OPTS="-javaagent:/Users/jhon/.sdkman/candidates/grails/2.4.3/lib/o
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
+export PATH=$JAVA_HOME/bin:$PATH

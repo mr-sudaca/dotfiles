@@ -67,4 +67,4 @@ export LC_ALL="en_US.UTF-8"
 # prompt is getting override somewhere... let's source it here
 source ~/.prompt
 
-source ~/.grails_stuff
+# source ~/.grails_stuff
