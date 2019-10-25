@@ -30,6 +30,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'ludovicchabant/vim-gutentags'
 
+" Vim and Neovim plugin to reveal the commit messages under the cursor
+Plugin 'rhysd/git-messenger.vim'
+
 " Themes
 Plugin 'GertjanReynaert/cobalt2-vim-theme'
 
