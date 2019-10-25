@@ -58,6 +58,8 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PATH="$PATH:$(go env GOPATH)/bin"
 
+export PATH="$PATH:$HOME/dev/infrastructure/jaws/cli"
+
 export GPG_TTY=$(tty)
 
 export LC_ALL="en_US.UTF-8"
