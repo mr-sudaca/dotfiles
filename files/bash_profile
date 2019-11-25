@@ -64,6 +64,8 @@ export GPG_TTY=$(tty)
 
 export LC_ALL="en_US.UTF-8"
 
+export JAWS_USERNAME="jhonquintero" # TODO: Move this stuff to a company config file
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # prompt is getting override somewhere... let's source it here
