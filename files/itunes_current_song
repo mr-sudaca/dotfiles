@@ -47,4 +47,4 @@ class WhatsPlaying
   end
 end
 
-puts "#{WhatsPlaying.status('iTunes')} | #{WhatsPlaying.status('Spotify')}"
+puts "#{WhatsPlaying.status('Music')} | #{WhatsPlaying.status('Spotify')}"
