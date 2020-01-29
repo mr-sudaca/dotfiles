@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+
+class BatteryInfo
+
+  def self.show
+    new.show
+  end
+
+  def show
+    return 'this script is meant to run on macOS/OSX, sorry' unless mac?
+    return charge_status unless discharging?
+
+    "Battery done in: #{time_remaining}"
+  end
+
+  private
+
+  def status_string
+    @status_string ||= `pmset -g batt`
+  end
+
+  def mac?
+    !(/darwin/ =~ RUBY_PLATFORM).nil?
+  end
+
+  def time_remaining
+    parsed_status[2]
+  end
+
+  def charge_status
+    parsed_status[1]
+  end
+
+  def discharging?
+    charge_status == 'discharging'
+  end
+
+  def parsed_status
+    @parsed_status ||=
+      status_string.match(/(discharging|charging|charged); (\d+:\d+|\(no estimate\))?/)
+  end
+end
+
+puts BatteryInfo.show
