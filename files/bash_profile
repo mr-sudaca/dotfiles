@@ -28,6 +28,10 @@ elif [[ "$unamestring" == 'Linux' ]]; then
   alias nxstart='sudo service nginx stop; sudo service nginx start'
 fi
 
+function git_local_cleanup()
+{
+  git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
+}
 
 function gp()
 {
@@ -65,6 +69,8 @@ export GPG_TTY=$(tty)
 export LC_ALL="en_US.UTF-8"
 
 export JAWS_USERNAME="jhonquintero" # TODO: Move this stuff to a company config file
+
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
