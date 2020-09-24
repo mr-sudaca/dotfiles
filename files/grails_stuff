@@ -1,9 +1,0 @@
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jhon/.sdkman"
-[[ -s "/Users/jhon/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jhon/.sdkman/bin/sdkman-init.sh"
-
-export GRAILS_OPTS="-javaagent:/Users/jhon/.sdkman/candidates/grails/2.4.3/lib/org.springframework/springloaded/jars/springloaded-1.2.4.RELEASE.jar -noverify -Dspringloaded=profile=grails"
-
-export JAVA_HOME=$(/usr/libexec/java_home)
-
-export PATH=$JAVA_HOME/bin:$PATH

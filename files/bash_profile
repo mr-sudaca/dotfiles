@@ -19,7 +19,7 @@ alias rc='DISABLE_PRY_RAILS=1 rails c'
 alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
 
 unamestring=`uname`
- 
+
 # osx aliases / linux aliases
 if [[ "$unamestring" == 'Darwin' ]]; then
   alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
@@ -36,8 +36,8 @@ function git_local_cleanup()
 function gp()
 {
   if [ -n "$1" ] # branch name passed
-    then
-      git co "$1"
+  then
+    git co "$1"
   fi
   git pull; git submodule update; bundle install
 }
@@ -45,8 +45,8 @@ function gp()
 function gpp() 
 {
   if [ -n "$1" ] # branch name passed
-    then
-      git co "$1"
+  then
+    git co "$1"
   fi
   git pull;
 }
@@ -71,21 +71,19 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export PATH="$PATH:$(go env GOPATH)/bin"
 
-export PATH="$PATH:$HOME/dev/ipsy/infrastructure/jaws/cli"
-
 export GPG_TTY=$(tty)
 
 export LC_ALL="en_US.UTF-8"
 
-export JAWS_USERNAME="jhonquintero" # TODO: Move this stuff to a company config file
-
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home"
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
 # prompt is getting override somewhere... let's source it here
 source ~/.prompt
 
 source ~/.private_vars
 
-# source ~/.grails_stuff
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
