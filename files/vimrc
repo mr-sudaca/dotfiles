@@ -41,6 +41,9 @@ Plugin 'slim-template/vim-slim.git'
 
 Plugin 'honza/vim-snippets'
 Plugin 'w0rp/ale' " Asynchronous Lint Engine
+
+" Plugin 'neoclide/coc.nvim'
+
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'rking/ag.vim' 
 Plugin 'vim-airline/vim-airline'
@@ -72,6 +75,17 @@ Plugin 'ecomba/vim-ruby-refactoring'
 Plugin 'airblade/vim-gitgutter'
 "A vim plugin to display the indention levels with thin vertical lines
 Plugin 'Yggdroot/indentLine'
+
+" js / jsx / typescript
+Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'peitalin/vim-jsx-typescript'
+Plugin 'styled-components/vim-styled-components'
+Plugin 'jparise/vim-graphql'
+Plugin 'maxmellon/vim-jsx-pretty'
+
+" autoclose html tags
+Plugin 'alvan/vim-closetag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -132,6 +146,11 @@ augroup ruby_setup
   autocmd!
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
   autocmd BufNewFile,BufRead *.slim set ft=slim
+augroup END
+
+augroup js_setup
+  autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+  autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 augroup END
 
 augroup autocomplete_setup
@@ -263,6 +282,21 @@ nmap <leader>P "+P
 vmap <leader>p "+p
 vmap <leader>P "+P"`"`"
 
+" https://superuser.com/a/707415
+"   Ctrl + a: Go to beginning of the line [Normal Mode && Insert Mode]
+"   Ctrl + e: Go to end of line [Normal Mode && Insert Mode]
+"   Alt + f: Backward a word [Insert Mode]
+"   Alt + b: Forward a word [Insert Mode]
+"   Alt + d: Delete a word (backward) [Insert Mode]
+
+map <C-a> <ESC>^
+imap <C-a> <ESC>I
+map <C-e> <ESC>$
+imap <C-e> <ESC>A
+inoremap <M-f> <ESC><Space>Wi
+inoremap <M-b> <Esc>Bi
+inoremap <M-d> <ESC>cW
+
 
 " Format and then going back to where I was 
 " https://www.reddit.com/r/vim/comments/7yzblt/what_was_your_best_vimrc_addition/dul39y7/
@@ -274,6 +308,15 @@ let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_enter=0
 let g:ale_lint_on_save=0
 map <Leader>a :ALELint<CR>
+
+" vim-jsx-pretty configurations
+let g:vim_jsx_pretty_colorful_config = 1 " default 0
+
+" vim-closetag configurations
+let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
+
 
 " let g:solarized_termcolors=256
 colorscheme cobalt2
