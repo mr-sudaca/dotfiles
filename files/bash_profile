@@ -14,9 +14,9 @@ alias tmux='tmux -2'
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -alG'
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
-alias rubocop='rubocop -c ~/.rubocop.yml'
 alias rc='DISABLE_PRY_RAILS=1 rails c'
 alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
+alias menv='set -o allexport; source .env; set +o allexport'
 
 unamestring=`uname`
 
