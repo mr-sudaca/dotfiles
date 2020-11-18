@@ -12,13 +12,17 @@ class WhatsPlaying
   end
 
   def status
-    return "this script is meant to run on macOS/OSX, sorry" unless mac?
+    return 'this script is meant to run on macOS/OSX, sorry' unless mac?
     return "(#{app}) idle" unless running?
 
-    "(#{app}) #{playing_status}: #{artist} - #{song}" if artist != '' && song != ''
+    "(#{app}) #{playing_status}: #{artist} - #{song} - #{album}" if show?
   end
 
   private
+
+  def show?
+    artist != '' && song != '' && album != ''
+  end
 
   def running?
     # How to ps without adding command to results:
@@ -32,6 +36,10 @@ class WhatsPlaying
 
   def get_status(field)
     `osascript -e 'tell application "#{app}" to #{field} of current track as string'`.chop
+  end
+
+  def album
+    @album ||= get_status('album')
   end
 
   def artist
