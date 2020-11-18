@@ -282,22 +282,6 @@ nmap <leader>P "+P
 vmap <leader>p "+p
 vmap <leader>P "+P"`"`"
 
-" https://superuser.com/a/707415
-"   Ctrl + a: Go to beginning of the line [Normal Mode && Insert Mode]
-"   Ctrl + e: Go to end of line [Normal Mode && Insert Mode]
-"   Alt + f: Backward a word [Insert Mode]
-"   Alt + b: Forward a word [Insert Mode]
-"   Alt + d: Delete a word (backward) [Insert Mode]
-
-map <C-a> <ESC>^
-imap <C-a> <ESC>I
-map <C-e> <ESC>$
-imap <C-e> <ESC>A
-inoremap <M-f> <ESC><Space>Wi
-inoremap <M-b> <Esc>Bi
-inoremap <M-d> <ESC>cW
-
-
 " Format and then going back to where I was 
 " https://www.reddit.com/r/vim/comments/7yzblt/what_was_your_best_vimrc_addition/dul39y7/
 nnoremap g= mmgg=G`m
