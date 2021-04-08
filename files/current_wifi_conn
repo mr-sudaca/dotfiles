@@ -1,15 +1,31 @@
 #!/usr/bin/env ruby
 
 class CurrentWifiConnection
-  def self.get
+  def get
     return 'this script is meant to run on macOS/OSX, sorry' unless mac?
+    return 'looks like there is no Wi-Fi on this computer' unless device_name
 
-    matches = `networksetup -getairportnetwork en0`.match(/Network: .+/)
+    matches = `networksetup -getairportnetwork #{device_name}`.match(/Network: .+/)
     matches && matches[0] || 'Not connected via wifi.'
   end
 
-  def self.mac?
+  def self.get
+    new.get
+  end
+
+  def mac?
     !(/darwin/ =~ RUBY_PLATFORM).nil?
+  end
+
+  def device_name
+    return @device_name if defined?(@device_name)
+
+    @device_name =
+      begin
+        string = `networksetup -listallhardwareports`
+        matches = string.match(/Hardware Port: Wi-Fi\nDevice: (...)/)
+        matches && matches[1]
+      end
   end
 end
 
