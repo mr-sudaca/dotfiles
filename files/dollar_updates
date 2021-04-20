@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-$VERBOSE = nil
+# $VERBOSE = nil
 require 'fixer_api_client'
 
 puts 1.usd.to_cop.inspect

@@ -15,7 +15,7 @@ class WhatsPlaying
     return 'this script is meant to run on macOS/OSX, sorry' unless mac?
     return "(#{app}) idle" unless running?
 
-    "(#{app}) #{playing_status}: #{artist} - #{song} - #{album}" if show?
+    "(#{app}) #{playing_status}: #{artist} - #{song}" if show?
   end
 
   private

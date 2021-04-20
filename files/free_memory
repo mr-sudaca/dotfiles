@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# encoding: utf-8
 
 # By Uğur Özyılmazel, @vigobronx | @ugurozyilmazel
 # http://vigodome.com | http://ugur.ozyilmazel.com | http://github.com/vigo
@@ -17,7 +16,7 @@ def get_paged_memory_usage(match_string, paging=4096)
 end
 
 installed_memory = `sysctl -n hw.memsize`.to_i / 1024 / 1024 / 1000.0
-total_consumed = 
+total_consumed =
   ['wired down', 'active', 'inactive'].reduce(0) { |sum, key| sum + get_paged_memory_usage(key) }
 
-printf("%.2fG of %.2fG free\n", (installed_memory-total_consumed), installed_memory) # returns in gigabytes
+printf('%.2f GB', (installed_memory - total_consumed)) # returns in gigabytes
