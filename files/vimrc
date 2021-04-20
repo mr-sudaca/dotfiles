@@ -30,6 +30,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'ludovicchabant/vim-gutentags'
 
+" Elixir / Phoenix plugins
+Plugin 'elixir-editors/vim-elixir'
+
 " Vim and Neovim plugin to reveal the commit messages under the cursor
 Plugin 'rhysd/git-messenger.vim'
 
@@ -284,6 +287,15 @@ nnoremap gQ mmgggqG`m
 let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_enter=0
 let g:ale_lint_on_save=0
+let g:ale_linters = {
+      \   'elixir': ['elixir-ls'],
+      \}
+
+let g:ale_fixers = {
+      \   'elixir': ['mix_format'],
+      \}
+
+let g:ale_elixir_elixir_ls_release='~/dev/elixir-ls/release/'
 map <Leader>a :ALELint<CR>
 
 " vim-jsx-pretty configurations
