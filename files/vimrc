@@ -256,6 +256,9 @@ nmap <leader>' cs"'
 " change single to double quotes
 nmap <leader>" cs"'
 
+" Blame it!
+nmap <leader>g :Git blame<CR>
+
 " allow semicolon to serve as colon
 nnoremap ; :
 
@@ -358,6 +361,10 @@ let g:gutentags_ctags_exclude = [
 " prettier config
 let g:prettier#exec_cmd_async = 1
 nmap <Leader>o <Plug>(Prettier)
+
+" elixir configs
+nmap <leader>x :! mix test %<CR>
+nmap <leader>m :! mix format<CR>
 
 " let g:solarized_termcolors=256
 colorscheme cobalt2
