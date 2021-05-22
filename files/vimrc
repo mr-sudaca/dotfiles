@@ -1,67 +1,62 @@
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 " Git wrapper so awesome, it should be illegal
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " A git commit browser in Vim
-Plugin 'junegunn/gv.vim'
+Plug 'junegunn/gv.vim'
 " Commands for vim-surround
 " cs"' :: Replace double quotes with single
 " cs'" :: Replace single with double quotes
 " ds"  :: Strip leading and trailing double quotes
 " ysiw' :: Add single quotes to the current word
-Plugin 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 " vim-repeat allows . to repeat changes to surrounding quotes
-Plugin 'tpope/vim-repeat' 
+Plug 'tpope/vim-repeat' 
 " rhubarb.vim: GitHub extension for fugitive.vim
-Plugin 'tpope/vim-rhubarb'  
-Plugin 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-rhubarb', { 'for': 'ruby' }
+Plug 'ctrlpvim/ctrlp.vim'
 " Make the yanked region apparent!
-Plugin 'machakann/vim-highlightedyank'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-rails'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'ajh17/VimCompletesMe'
-Plugin 'ludovicchabant/vim-gutentags'
+Plug 'machakann/vim-highlightedyank'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'ajh17/VimCompletesMe'
+Plug 'ludovicchabant/vim-gutentags'
 
 " Elixir / Phoenix plugins
-Plugin 'elixir-editors/vim-elixir'
+Plug 'elixir-editors/vim-elixir'
 
 " Vim and Neovim plugin to reveal the commit messages under the cursor
-Plugin 'rhysd/git-messenger.vim'
+Plug 'rhysd/git-messenger.vim'
 
 " Themes
-Plugin 'GertjanReynaert/cobalt2-vim-theme'
+Plug 'GertjanReynaert/cobalt2-vim-theme'
 
-" Slim syntax highlight
-Plugin 'slim-template/vim-slim.git'
+Plug 'honza/vim-snippets'
+Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
-Plugin 'honza/vim-snippets'
-Plugin 'w0rp/ale' " Asynchronous Lint Engine
+Plug 'neoclide/coc.nvim', { 'branch': 'master' }
+Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
-" Plugin 'neoclide/coc.nvim'
+" Plug 'neoclide/coc.nvim'
 
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'rking/ag.vim' 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vhladama/vim-rubyhash'
+Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'rking/ag.vim' 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vhladama/vim-rubyhash', { 'for': 'ruby' }
 " Commands for vim-rubyhash
 " <leader>rt :: stringify keys with double quotes
 " <leader>rs :: symbolize keys
 " <leader>rq :: stringify keys with single quotes
 " <leader>rr :: turns hash into new-style ruby hash
-Plugin 'tomtom/tcomment_vim'
+Plug 'tomtom/tcomment_vim'
 " Commands for tcomment_vim
 " gcc :: Toggle comment for the curent line
 " gc{motion} ::Toggle comments for motion
-Plugin 'ecomba/vim-ruby-refactoring'
+Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
 " See https://github.com/ecomba/vim-ruby-refactoring for commands and keymaps                                      
 " Main shortcut: :nnoremap <leader>rel  :RExtractLet<cr>
 " :nnoremap <leader>rap  :RAddParameter<cr>
@@ -75,24 +70,24 @@ Plugin 'ecomba/vim-ruby-refactoring'
 " :vnoremap <leader>rem  :RExtractMethod<cr>
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 "A vim plugin to display the indention levels with thin vertical lines
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " js / jsx / typescript
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'peitalin/vim-jsx-typescript'
-Plugin 'styled-components/vim-styled-components'
-Plugin 'jparise/vim-graphql'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'prettier/vim-prettier'
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
+Plug 'peitalin/vim-jsx-typescript', { 'for': ['javascript', 'typescript'] }
+Plug 'styled-components/vim-styled-components'
+Plug 'jparise/vim-graphql'
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
+Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript'] }
 
 " autoclose html tags
-Plugin 'alvan/vim-closetag'
+Plug 'alvan/vim-closetag'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 
 "filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -105,7 +100,7 @@ call vundle#end()            " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Put your non-Plug stuff after this line
 
 set number
 filetype plugin indent on    " Enable filetype-specific plugins, filetype-specific indenting
@@ -290,15 +285,9 @@ nnoremap gQ mmgggqG`m
 let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_enter=0
 let g:ale_lint_on_save=0
-let g:ale_linters = {
-      \   'elixir': ['elixir-ls'],
-      \}
+let g:ale_fixers = { 'elixir': ['mix_format'] }
 
-let g:ale_fixers = {
-      \   'elixir': ['mix_format'],
-      \}
-
-let g:ale_elixir_elixir_ls_release='~/dev/elixir-ls/release/'
+" let g:ale_elixir_elixir_ls_release='~/dev/elixir-ls/release/'
 map <Leader>a :ALELint<CR>
 
 " vim-jsx-pretty configurations
@@ -365,6 +354,59 @@ nmap <Leader>o <Plug>(Prettier)
 " elixir configs
 nmap <leader>x :! mix test %<CR>
 nmap <leader>m :! mix format<CR>
+nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
+
+augroup vimrc_plugins_coc
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+augroup END
+"
+" coc.nvim
+"
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " let g:solarized_termcolors=256
 colorscheme cobalt2
