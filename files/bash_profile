@@ -25,6 +25,9 @@ alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -alG'
+alias vim='nvim'
+alias cf='git diff --name-only | uniq | xargs nvim' # open files with conflicts in vim (rebasing)
+alias gac='git diff --name-only | uniq | xargs git add; git rebase --continue' # after fixing conflicts, commit those changes and continue
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
 alias rc='DISABLE_PRY_RAILS=1 rails c'
 alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
