@@ -37,12 +37,12 @@ Plug 'GertjanReynaert/cobalt2-vim-theme'
 Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
-Plug 'neoclide/coc.nvim', { 'branch': 'master' }
+Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 " Plug 'neoclide/coc.nvim'
 
-Plug 'thoughtbot/vim-rspec', { 'for': 'ruby' }
+Plug 'vim-test/vim-test'
 Plug 'rking/ag.vim' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -78,7 +78,6 @@ Plug 'Yggdroot/indentLine'
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
 Plug 'peitalin/vim-jsx-typescript', { 'for': ['javascript', 'typescript'] }
-Plug 'styled-components/vim-styled-components'
 Plug 'jparise/vim-graphql'
 Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
 Plug 'prettier/vim-prettier', { 'for': ['javascript', 'typescript'] }
@@ -211,11 +210,12 @@ endif
 vnoremap < <gv
 vnoremap > >gv
 
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-let g:rspec_command = "!rspec {spec} --format documentation"
+" Vim test mappings
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
 
 " airline stuff
 let g:airline#extensions#tabline#enabled = 1
@@ -242,7 +242,7 @@ endif
 
 " when to jump to the next line
 if exists("&colorcolumn")
-  set colorcolumn=80
+  set colorcolumn=80,100
 endif
 
 " change double to single quotes
