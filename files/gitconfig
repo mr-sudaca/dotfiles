@@ -26,14 +26,14 @@
         cim = commit -m
         cinm = commit --no-verify -m
         ch = diff-tree --no-commit-id --name-only -r
-        cp = cherry-pick
+        cpp = cherry-pick
 [branch]
         autosetupmerge = true
         autosetuprebase = always
 [core]
         whitespace = trailing-space,space-before-tab
         filemode = false
-        editor=vim
+	editor = \"nvim\"
 [rerere]
         enabled = 1
 [push]
