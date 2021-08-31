@@ -1,7 +1,7 @@
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged/')
 " Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
 " A git commit browser in Vim
@@ -15,32 +15,31 @@ Plug 'tpope/vim-surround'
 " vim-repeat allows . to repeat changes to surrounding quotes
 Plug 'tpope/vim-repeat' 
 " rhubarb.vim: GitHub extension for fugitive.vim
-Plug 'tpope/vim-rhubarb', { 'for': 'ruby' }
+Plug 'tpope/vim-rhubarb'
 Plug 'ctrlpvim/ctrlp.vim'
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'ajh17/VimCompletesMe'
+" Plug 'ajh17/VimCompletesMe'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Elixir / Phoenix plugins
-Plug 'elixir-editors/vim-elixir'
+Plug 'sheerun/vim-polyglot'
 
 " Vim and Neovim plugin to reveal the commit messages under the cursor
 Plug 'rhysd/git-messenger.vim'
 
 " Themes
-Plug 'GertjanReynaert/cobalt2-vim-theme'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'ryanoasis/vim-devicons'
 
 Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
 Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
-
-" Plug 'neoclide/coc.nvim'
 
 Plug 'vim-test/vim-test'
 Plug 'rking/ag.vim' 
@@ -221,7 +220,7 @@ nmap <silent> t<C-g> :TestVisit<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-let g:airline_theme='cobalt2'
+let g:airline_theme='gruvbox'
 let g:airline_section_c = '%F'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
@@ -297,7 +296,7 @@ let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
-
+let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
 let g:gutentags_ctags_exclude = [ 
       \ '.git', '.svg', '.hg', 
       \ '/tests/',
@@ -352,7 +351,7 @@ let g:prettier#exec_cmd_async = 1
 nmap <Leader>o <Plug>(Prettier)
 
 " elixir configs
-nmap <leader>x :! mix test %<CR>
+" nmap <leader>x :! mix test %<CR>
 nmap <leader>m :! mix format<CR>
 nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
 
@@ -360,20 +359,47 @@ augroup vimrc_plugins_coc
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 augroup END
+
 "
 " coc.nvim
 "
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <Tab>
+inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <silent><expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" let g:coc_snippet_next = '<tab>'
+
+" Use <C-l> for trigger snippet expand.
+imap <C-l> <Plug>(coc-snippets-expand)
+
+" Use <C-j> for select text for visual placeholder of snippet.
+vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <C-j> for jump to next placeholder, it's default of coc.nvim
+let g:coc_snippet_next = '<c-j>'
+
+" Use <C-k> for jump to previous placeholder, it's default of coc.nvim
+let g:coc_snippet_prev = '<c-k>'
+
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+
+" Use <leader>x for convert visual selected code to snippet
+xmap <leader>x  <Plug>(coc-convert-snippet)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -408,5 +434,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
+
 " let g:solarized_termcolors=256
-colorscheme cobalt2
+colorscheme gruvbox
