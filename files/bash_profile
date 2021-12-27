@@ -5,23 +5,6 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
-# if type brew &>/dev/null; then
-#   HOMEBREW_PREFIX="$(brew --prefix)"
-#   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
-#     source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
-#   else
-#     for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*; do
-#       [[ -r "$COMPLETION" ]] && source "$COMPLETION"
-#     done
-#   fi
-# fi
-
-
-# User specific aliases and functions
-alias dlog='tail -f log/development.log'
-alias tlog='tail -f log/test.log'
-# load tmux with 256 colors support (for vim)
-alias tmux='tmux -2'
 # simple http server
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -alG'
@@ -29,7 +12,6 @@ alias vim='nvim'
 alias cf='git diff --name-only | uniq | xargs nvim' # open files with conflicts in vim (rebasing)
 alias gac='git diff --name-only | uniq | xargs git add; git rebase --continue' # after fixing conflicts, commit those changes and continue
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
-alias rc='DISABLE_PRY_RAILS=1 rails c'
 alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
 alias menv='set -o allexport; source .env; set +o allexport'
 
@@ -66,18 +48,6 @@ function gpp()
   git pull;
 }
 
-# new feature branch from current branch
-function newf()
-{
-  git co -b feature/#"$1"; git push -u origin feature/#"$1"
-}
-
-# new bug branch from current branch
-function newb()
-{
-  git co -b bug/#"$1"; git push -u origin bug/#"$1"
-}
-
 export PATH="$HOME/.npm-packages/bin:$PATH"
 
 export PATH="/usr/local/sbin:$PATH"
@@ -99,5 +69,5 @@ source ~/.private_vars
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-. $(brew --prefix asdf)/asdf.sh
-. $(brew --prefix asdf)/etc/bash_completion.d/asdf.bash
+. /usr/local/opt/asdf/libexec/asdf.sh
+export PATH="/usr/local/opt/tomcat@9/bin:$PATH"

@@ -22,7 +22,6 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-" Plug 'ajh17/VimCompletesMe'
 Plug 'ludovicchabant/vim-gutentags'
 
 " Elixir / Phoenix plugins
@@ -87,19 +86,6 @@ Plug 'alvan/vim-closetag'
 " All of your Plugins must be added before the following line
 call plug#end()            " required
 
-"filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plug stuff after this line
-
 set number
 filetype plugin indent on    " Enable filetype-specific plugins, filetype-specific indenting
 
@@ -149,22 +135,6 @@ augroup js_setup
   autocmd BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
   autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 augroup END
-
-augroup autocomplete_setup
-  autocmd FileType vim let b:vcm_tab_complete = 'vim'
-augroup END
-
-" function! <SID>StripTrailingWhitespaces()
-"   let l = line(".")
-"   let c = col(".")
-"   %s/\s\+$//ge
-"   call cursor(l, c)
-" endfunction
-"
-" autocmd FileType ruby,eruby,cucumber,spec autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
-" Disable AutoComplPop. 
-let g:acp_enableAtStartup = 0
 
 " switch windows with <leader> w
 nmap <leader>w <C-w><C-w>
