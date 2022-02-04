@@ -1,5 +1,8 @@
 source ~/.bashrc
 
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
+
 # my stuff
 if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
@@ -69,5 +72,6 @@ source ~/.private_vars
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-. /usr/local/opt/asdf/libexec/asdf.sh
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
 export PATH="/usr/local/opt/tomcat@9/bin:$PATH"
+
