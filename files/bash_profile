@@ -12,34 +12,23 @@ fi
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -alG'
 alias vim='nvim'
+alias vi='nvim'
 alias cf='git diff --name-only | uniq | xargs nvim' # open files with conflicts in vim (rebasing)
 alias gac='git diff --name-only | uniq | xargs git add; git rebase --continue' # after fixing conflicts, commit those changes and continue
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
 alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
-alias menv='set -o allexport; source .env; set +o allexport'
+alias uuidgen='uuidgen | tr -d "\n" | tr "[:upper:]" "[:lower:]"'
 
 unamestring=`uname`
 
-# osx aliases / linux aliases
+# osx aliases
 if [[ "$unamestring" == 'Darwin' ]]; then
-  alias nxstart='sudo nginx -s stop; echo "starting nginx..."; sudo nginx'
   alias ctags="`brew --prefix`/bin/ctags"
-elif [[ "$unamestring" == 'Linux' ]]; then
-  alias nxstart='sudo service nginx stop; sudo service nginx start'
 fi
 
 function git_local_cleanup()
 {
   git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D
-}
-
-function gp()
-{
-  if [ -n "$1" ] # branch name passed
-  then
-    git co "$1"
-  fi
-  git pull; git submodule update; bundle install
 }
 
 function gpp() 
@@ -52,8 +41,6 @@ function gpp()
 }
 
 export PATH="$HOME/.npm-packages/bin:$PATH"
-
-export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -73,5 +60,5 @@ source ~/.private_vars
 export PATH="$HOME/.cargo/bin:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
-export PATH="/usr/local/opt/tomcat@9/bin:$PATH"
 
+eval "$(direnv hook bash)"
