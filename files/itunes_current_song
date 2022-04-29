@@ -21,7 +21,7 @@ class WhatsPlaying
   private
 
   def show?
-    artist != '' && song != '' && album != ''
+    [artist, song, album].none?(&:empty?)
   end
 
   def running?
