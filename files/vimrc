@@ -4,6 +4,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call plug#begin('~/.config/nvim/plugged/')
 " Git wrapper so awesome, it should be illegal
 Plug 'tpope/vim-fugitive'
+" projectionist.vim: Granular project configuration 
+Plug 'tpope/vim-projectionist'
 " A git commit browser in Vim
 Plug 'junegunn/gv.vim'
 " Commands for vim-surround
@@ -20,13 +22,33 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-" Plug 'ajh17/VimCompletesMe'
-Plug 'ludovicchabant/vim-gutentags'
-
-" Elixir / Phoenix plugins
+"
+" ################## Language plugins
+" elixir (and a bunch of other langs)
 Plug 'sheerun/vim-polyglot'
+" ruby / rails
+Plug 'tpope/vim-rails'
+Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
+" See https://github.com/ecomba/vim-ruby-refactoring for commands and keymaps                                      
+" Main shortcut: :nnoremap <leader>rel  :RExtractLet<cr>
+" :nnoremap <leader>rap  :RAddParameter<cr>
+" :nnoremap <leader>rcpc :RConvertPostConditional<cr>
+" :nnoremap <leader>rel  :RExtractLet<cr>
+" :vnoremap <leader>rec  :RExtractConstant<cr>
+" :vnoremap <leader>relv :RExtractLocalVariable<cr>
+" :nnoremap <leader>rit  :RInlineTemp<cr>
+" :vnoremap <leader>rrlv :RRenameLocalVariable<cr>
+" :vnoremap <leader>rriv :RRenameInstanceVariable<cr>
+" :vnoremap <leader>rem  :RExtractMethod<cr>
+Plug 'vhladama/vim-rubyhash', { 'for': 'ruby' }
+" Commands for vim-rubyhash
+" <leader>rt :: stringify keys with double quotes
+" <leader>rs :: symbolize keys
+" <leader>rq :: stringify keys with single quotes
+" <leader>rr :: turns hash into new-style ruby hash
+" js / jsx / typescript
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " Vim and Neovim plugin to reveal the commit messages under the cursor
 Plug 'rhysd/git-messenger.vim'
@@ -45,41 +67,15 @@ Plug 'vim-test/vim-test'
 Plug 'rking/ag.vim' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'vhladama/vim-rubyhash', { 'for': 'ruby' }
-" Commands for vim-rubyhash
-" <leader>rt :: stringify keys with double quotes
-" <leader>rs :: symbolize keys
-" <leader>rq :: stringify keys with single quotes
-" <leader>rr :: turns hash into new-style ruby hash
 Plug 'tomtom/tcomment_vim'
 " Commands for tcomment_vim
 " gcc :: Toggle comment for the curent line
 " gc{motion} ::Toggle comments for motion
-Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
-" See https://github.com/ecomba/vim-ruby-refactoring for commands and keymaps                                      
-" Main shortcut: :nnoremap <leader>rel  :RExtractLet<cr>
-" :nnoremap <leader>rap  :RAddParameter<cr>
-" :nnoremap <leader>rcpc :RConvertPostConditional<cr>
-" :nnoremap <leader>rel  :RExtractLet<cr>
-" :vnoremap <leader>rec  :RExtractConstant<cr>
-" :vnoremap <leader>relv :RExtractLocalVariable<cr>
-" :nnoremap <leader>rit  :RInlineTemp<cr>
-" :vnoremap <leader>rrlv :RRenameLocalVariable<cr>
-" :vnoremap <leader>rriv :RRenameInstanceVariable<cr>
-" :vnoremap <leader>rem  :RExtractMethod<cr>
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 "A vim plugin to display the indention levels with thin vertical lines
 Plug 'Yggdroot/indentLine'
-
-" js / jsx / typescript
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
-Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
-Plug 'peitalin/vim-jsx-typescript', { 'for': ['javascript', 'typescript'] }
-Plug 'jparise/vim-graphql'
-Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " autoclose html tags
 Plug 'alvan/vim-closetag'
@@ -136,6 +132,7 @@ set expandtab
 set background=dark
 set foldmethod=indent
 set nrformats=
+set foldlevel=9999
 
 highlight StatusLine ctermfg=yellow
 
@@ -303,56 +300,6 @@ let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
-let g:gutentags_exclude_filetypes = ['gitcommit', 'gitconfig', 'gitrebase', 'gitsendemail', 'git']
-let g:gutentags_ctags_exclude = [ 
-      \ '.git', '.svg', '.hg', 
-      \ '/tests/',
-      \ 'build', 
-      \ '_build', 
-      \ 'dist', 
-      \ 'sites//files/', 
-      \ 'bin', 
-      \ 'node_modules', 
-      \ 'bower_components', 
-      \ 'cache', 
-      \ 'compiled',
-      \ 'docs', 
-      \ 'example', 
-      \ 'bundle', 
-      \ 'vendor', 
-      \ '.md',
-      \ '-lock.json', 
-      \ '.lock',
-      \ 'bundle.js',
-      \ 'build.js',
-      \ '.rc',
-      \ '.json',
-      \ '.min.',
-      \ '.map',
-      \ '.bak',
-      \ '.zip', 
-      \ '.pyc',
-      \ '.class',
-      \ '.sln',
-      \ '.Master',
-      \ '.csproj',
-      \ '.tmp', 
-      \ '.csproj.user',
-      \ '.cache',
-      \ '.pdb',
-      \ 'tags',
-      \ 'cscope.',
-      \
-      \'.css', 
-      \'.less',
-      \'.scss',
-      \'.exe', '.dll',
-      \'.mp3', '.ogg', '.flac',
-      \'.swp', '.swo',
-      \'.bmp', '.gif', '.ico', '.jpg', '.png',
-      \'.rar', '.zip', '.tar', '.tar.gz', '.tar.xz', '.tar.bz2',
-      \'.pdf', '.doc', '.docx', '.ppt', '.pptx',
-      \]
 
 " prettier config
 let g:prettier#exec_cmd_async = 1
@@ -440,6 +387,9 @@ endfunction
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
 
+" Format a selection of SQL code
+vmap <C-g> <ESC>:'<,'>! pg_format --spaces 2 --function-case 2<CR>
+
 if has('nvim-0.4.0') || has('patch-8.2.0750')
   nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
   nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
@@ -451,5 +401,4 @@ endif
 
 let g:loaded_perl_provider = 0
 
-" let g:solarized_termcolors=256
 colorscheme gruvbox
