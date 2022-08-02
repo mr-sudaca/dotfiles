@@ -10,7 +10,7 @@ class BatteryInfo
     return 'this script is meant to run on macOS/OSX, sorry' unless mac?
     return charge_status unless discharging?
 
-    "Battery done in: #{time_remaining}"
+    "done in: #{time_remaining}"
   end
 
   private

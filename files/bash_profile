@@ -59,6 +59,8 @@ source ~/.private_vars
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
 eval "$(direnv hook bash)"
