@@ -48,15 +48,17 @@ Plug 'vhladama/vim-rubyhash', { 'for': 'ruby' }
 " <leader>rr :: turns hash into new-style ruby hash
 " js / jsx / typescript
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
-Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " Vim and Neovim plugin to reveal the commit messages under the cursor
 Plug 'rhysd/git-messenger.vim'
 
 " Themes
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ryanoasis/vim-devicons'
 
+" Track the engine.
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
@@ -147,19 +149,6 @@ augroup js_setup
   autocmd BufLeave *.{js,jsx,ts,tsx} :syntax sync clear
 augroup END
 
-augroup autocomplete_setup
-  autocmd FileType vim let b:vcm_tab_complete = 'vim'
-augroup END
-
-" function! <SID>StripTrailingWhitespaces()
-"   let l = line(".")
-"   let c = col(".")
-"   %s/\s\+$//ge
-"   call cursor(l, c)
-" endfunction
-"
-" autocmd FileType ruby,eruby,cucumber,spec autocmd BufWritePre <buffer> :call <SID>StripTrailingWhitespaces()
-
 " Disable AutoComplPop. 
 let g:acp_enableAtStartup = 0
 
@@ -217,7 +206,7 @@ nmap <silent> t<C-g> :TestVisit<CR>
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-let g:airline_theme='gruvbox'
+let g:airline_theme='dracula'
 let g:airline_section_c = '%F'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
@@ -278,20 +267,29 @@ nnoremap g= mmgg=G`m
 nnoremap gQ mmgggqG`m
 
 " ale configs
+function! LoadNearestFormatter()
+  let l:git_root = system("git rev-parse --show-toplevel")[:-2]
+  let l:fmt = findfile(".formatter.exs", l:git_root)
+  let g:ale_elixir_mix_format_options = "--dot-formatter " . l:fmt
+endfunction
+
+call LoadNearestFormatter()
+
 let g:ale_lint_on_text_changed="never"
 let g:ale_lint_on_enter=0
-let g:ale_lint_on_save=0
+let g:ale_lint_on_save=1
+let g:ale_fix_on_save=1
 let g:ale_floating_preview=1
 let g:ale_fixers = {
   \ 'elixir': ['mix_format'],
-  \ 'javascript': ['eslint'],
-  \ 'typescript': ['eslint'],
-  \ 'typescriptreact': ['eslint'],
+  \ 'javascript': ['prettier', 'eslint'],
+  \ 'typescript': ['prettier', 'eslint'],
+  \ 'typescriptreact': ['prettier', 'eslint'],
 \}
 
 
 " let g:ale_elixir_elixir_ls_release='~/dev/elixir-ls/release/'
-map <Leader>a :ALELint<CR>
+" map <Leader>a :ALELint<CR>
 
 " vim-jsx-pretty configurations
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
@@ -301,15 +299,9 @@ let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
 
-" prettier config
-let g:prettier#exec_cmd_async = 1
-let g:prettier#autoformat = 1
-nmap <Leader>o <Plug>(Prettier)
-
 " elixir configs
-" nmap <leader>x :! mix test %<CR>
-nmap <leader>m :! mix format<CR>
 nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
+nmap <leader>l :CocList snippets<CR>
 
 " json pretty print
 nmap <leader>j :%!python -m json.tool<CR>
@@ -401,4 +393,4 @@ endif
 
 let g:loaded_perl_provider = 0
 
-colorscheme gruvbox
+colorscheme dracula
