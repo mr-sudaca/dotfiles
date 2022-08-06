@@ -22,6 +22,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Make the yanked region apparent!
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 "
 " ################## Language plugins
 " elixir (and a bunch of other langs)
@@ -62,7 +64,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
-Plug 'neoclide/coc.nvim', { 'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 Plug 'vim-test/vim-test'
@@ -81,6 +83,14 @@ Plug 'Yggdroot/indentLine'
 
 " autoclose html tags
 Plug 'alvan/vim-closetag'
+
+" js / jsx / ts / gql
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
+Plug 'peitalin/vim-jsx-typescript', { 'for': ['javascript', 'typescript'] }
+Plug 'jparise/vim-graphql'
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'typescript'] }
+Plug 'prettier/vim-prettier', { 'do': 'yarn install --frozen-lockfile --production' }
 
 " All of your Plugins must be added before the following line
 call plug#end()            " required
@@ -281,11 +291,11 @@ let g:ale_lint_on_save=1
 let g:ale_fix_on_save=1
 let g:ale_floating_preview=1
 let g:ale_fixers = {
-  \ 'elixir': ['mix_format'],
-  \ 'javascript': ['prettier', 'eslint'],
-  \ 'typescript': ['prettier', 'eslint'],
-  \ 'typescriptreact': ['prettier', 'eslint'],
-\}
+      \ 'elixir': ['mix_format'],
+      \ 'javascript': ['prettier', 'eslint'],
+      \ 'typescript': ['prettier', 'eslint'],
+      \ 'typescriptreact': ['prettier', 'eslint'],
+      \}
 
 
 " let g:ale_elixir_elixir_ls_release='~/dev/elixir-ls/release/'
@@ -298,6 +308,9 @@ let g:vim_jsx_pretty_colorful_config = 1 " default 0
 let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
 let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
+
+" UltiSnips configurations
+let g:UltiSnipsExpandTrigger="<Space>"
 
 " elixir configs
 nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
@@ -314,11 +327,21 @@ augroup END
 "
 " coc.nvim
 "
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 function! s:check_back_space() abort
   let col = col('.') - 1
