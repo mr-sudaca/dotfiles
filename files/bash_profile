@@ -50,6 +50,8 @@ export GPG_TTY=$(tty)
 
 export LC_ALL="en_US.UTF-8"
 
+export EDITOR="nvim"
+
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_101.jdk/Contents/Home"
 
 # prompt is getting override somewhere... let's source it here
