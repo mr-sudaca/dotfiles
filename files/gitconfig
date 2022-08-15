@@ -16,6 +16,7 @@
         ci = commit
         br = branch
         co = checkout
+        rfg = reflog --format='%C(auto)%h %<|(17)%gd %C(blue)%ci%C(reset) %s'
         df = diff --word-diff=color
         lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr - %cn)%Creset' --abbrev-commit --date=relative
         lgn = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr - %cn)%Creset' --abbrev-commit --date=relative --name-only
