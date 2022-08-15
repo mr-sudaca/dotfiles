@@ -58,6 +58,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'rafi/awesome-vim-colorschemes'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ryanoasis/vim-devicons'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Track the engine.
 Plug 'SirVer/ultisnips'
@@ -133,6 +134,7 @@ set hlsearch
 set history=1000
 set autoread
 set undolevels=1000
+set termguicolors
 
 set backupdir=/tmp   
 set directory=/tmp// "don't clutter my dirs with swp and tmp files
@@ -310,7 +312,7 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
 let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
 
 " UltiSnips configurations
-let g:UltiSnipsExpandTrigger="<Space>"
+let g:UltiSnipsExpandTrigger="<C-Space>"
 
 " elixir configs
 nnoremap <silent> <leader>co  :<C-u>CocList outline<CR>
@@ -415,5 +417,9 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
 endif
 
 let g:loaded_perl_provider = 0
+
+lua << EOF
+  require'colorizer'.setup()
+EOF
 
 colorscheme dracula
