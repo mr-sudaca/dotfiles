@@ -23,6 +23,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 "
 " ################## Language plugins
@@ -66,7 +67,7 @@ Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
+" Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 Plug 'vim-test/vim-test'
 Plug 'rking/ag.vim' 
@@ -110,9 +111,10 @@ call plug#end()            " required
 " Put your non-Plug stuff after this line
 
 set number
-filetype plugin indent on    " Enable filetype-specific plugins, filetype-specific indenting
 
-syntax on             " Enable syntax highlighting
+" vim-plug already enables this 
+" filetype plugin indent on    " Enable filetype-specific plugins, filetype-specific indenting
+" syntax on             " Enable syntax highlighting
 
 let mapleader = ","
 
@@ -135,6 +137,9 @@ set history=1000
 set autoread
 set undolevels=1000
 set termguicolors
+
+" nvim 0.8.0 activates the damn mouse by default :/
+set mouse=
 
 set backupdir=/tmp   
 set directory=/tmp// "don't clutter my dirs with swp and tmp files
@@ -190,7 +195,7 @@ imap <C-s> <esc>:w<CR>
 " let g:indentLine_char = '.'
 let g:indentLine_enabled = 0
 
-map <C-i> :IndentLinesToggle<CR>
+map <leader>t :IndentLinesToggle<CR>
 
 " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -420,6 +425,29 @@ let g:loaded_perl_provider = 0
 
 lua << EOF
   require'colorizer'.setup()
+
+  require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+      "javascript",
+      "typescript",
+      "rust",
+      "elixir",
+      "erlang",
+      "c",
+      "lua",
+      "tsx",
+      "scss",
+      "ruby",
+      "vim",
+      "bash",
+    },
+    highlight = {
+      enable = true
+    },
+    -- playground = {
+    --   enable = true,
+    -- },
+  }
 EOF
 
 colorscheme dracula
