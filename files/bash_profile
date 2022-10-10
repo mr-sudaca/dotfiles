@@ -40,10 +40,6 @@ function gpp()
   git pull;
 }
 
-export PATH="$HOME/.npm-packages/bin:$PATH"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
 export PATH="$PATH:$(go env GOPATH)/bin"
 
 export GPG_TTY=$(tty)
