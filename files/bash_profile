@@ -8,6 +8,20 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
 fi
 
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
 # simple http server
 alias server='python -m SimpleHTTPServer'
 alias ll='ls -alG'
@@ -40,8 +54,6 @@ function gpp()
   git pull;
 }
 
-export PATH="$PATH:$(go env GOPATH)/bin"
-
 export GPG_TTY=$(tty)
 
 export LC_ALL="en_US.UTF-8"
@@ -60,5 +72,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+HEROKU_AC_BASH_SETUP_PATH=/Users/jhon/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
 
 eval "$(direnv hook bash)"
