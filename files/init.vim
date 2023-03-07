@@ -67,9 +67,11 @@ Plug 'honza/vim-snippets'
 Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'elixir-lsp/coc-elixir', {'branch': 'master', 'do': 'yarn install && yarn prepack'}
 " Plug 'amiralies/coc-elixir', {'do': 'yarn install && yarn prepack'}
 
 Plug 'vim-test/vim-test'
+Plug 'tpope/vim-dispatch'
 Plug 'rking/ag.vim' 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -218,12 +220,16 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+let test#strategy = "neovim"
+let test#elixir#exunit#options = {
+  \ 'all':   '--trace'
+\}
 
 " airline stuff
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-let g:airline_theme='dracula'
+let g:airline_theme='papercolor'
 let g:airline_section_c = '%F'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
@@ -450,4 +456,5 @@ lua << EOF
   }
 EOF
 
-colorscheme dracula
+" colorscheme nord
+colorscheme papercolor

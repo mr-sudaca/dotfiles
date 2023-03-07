@@ -37,7 +37,7 @@ class BatteryInfo
 
   def parsed_status
     @parsed_status ||=
-      status_string.match(/(discharging|charging|charged); (\d+:\d+|\(no estimate\))?/)
+      status_string.match(/(discharging|finishing charge|charged|attached|charging); (\d+:\d+|\(no estimate\))?/)
   end
 end
 
