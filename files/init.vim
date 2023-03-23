@@ -1,5 +1,5 @@
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/Vundle.vim
 
 call plug#begin('~/.config/nvim/plugged/')
 " Git wrapper so awesome, it should be illegal
@@ -24,6 +24,8 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'github/copilot.vim'
 
 "
 " ################## Language plugins
@@ -199,10 +201,11 @@ let g:indentLine_enabled = 0
 
 map <leader>t :IndentLinesToggle<CR>
 
-" ctrlp configs
+" " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-"let g:ctrlp_user_command = 'find %s -type f'  " MacOSX/Linux
+let g:ctrlp_use_caching = 0
+" "let g:ctrlp_user_command = 'find %s -type f'  " MacOSX/Linux
 
 " If ag is available use it as filename list generator instead of 'find'
 if executable("ag")
