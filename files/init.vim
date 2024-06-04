@@ -27,39 +27,21 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'github/copilot.vim'
 
+" vim-signature is a plugin to place, toggle and display marks.
+Plug 'kshenoy/vim-signature'
+
 "
 " ################## Language plugins
 " elixir (and a bunch of other langs)
 Plug 'sheerun/vim-polyglot'
 " ruby / rails
 Plug 'tpope/vim-rails'
-Plug 'ecomba/vim-ruby-refactoring', { 'for': 'ruby' }
-" See https://github.com/ecomba/vim-ruby-refactoring for commands and keymaps                                      
-" Main shortcut: :nnoremap <leader>rel  :RExtractLet<cr>
-" :nnoremap <leader>rap  :RAddParameter<cr>
-" :nnoremap <leader>rcpc :RConvertPostConditional<cr>
-" :nnoremap <leader>rel  :RExtractLet<cr>
-" :vnoremap <leader>rec  :RExtractConstant<cr>
-" :vnoremap <leader>relv :RExtractLocalVariable<cr>
-" :nnoremap <leader>rit  :RInlineTemp<cr>
-" :vnoremap <leader>rrlv :RRenameLocalVariable<cr>
-" :vnoremap <leader>rriv :RRenameInstanceVariable<cr>
-" :vnoremap <leader>rem  :RExtractMethod<cr>
-Plug 'vhladama/vim-rubyhash', { 'for': 'ruby' }
-" Commands for vim-rubyhash
-" <leader>rt :: stringify keys with double quotes
-" <leader>rs :: symbolize keys
-" <leader>rq :: stringify keys with single quotes
-" <leader>rr :: turns hash into new-style ruby hash
-" js / jsx / typescript
-Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript'] }
 
 " Vim and Neovim plugin to reveal the commit messages under the cursor
 Plug 'rhysd/git-messenger.vim'
 
 " Themes
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'ryanoasis/vim-devicons'
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -84,11 +66,6 @@ Plug 'tomtom/tcomment_vim'
 
 " A Vim plugin which shows a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
-"A vim plugin to display the indention levels with thin vertical lines
-Plug 'Yggdroot/indentLine'
-
-" autoclose html tags
-Plug 'alvan/vim-closetag'
 
 " js / jsx / ts / gql
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript'] }
@@ -162,7 +139,6 @@ highlight StatusLine ctermfg=yellow
 augroup ruby_setup
   autocmd!
   autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-  autocmd BufNewFile,BufRead *.slim set ft=slim
 augroup END
 
 augroup js_setup
@@ -199,8 +175,6 @@ imap <C-s> <esc>:w<CR>
 " let g:indentLine_char = '.'
 let g:indentLine_enabled = 0
 
-map <leader>t :IndentLinesToggle<CR>
-
 " " ctrlp configs
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -232,7 +206,7 @@ let test#elixir#exunit#options = {
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:bufferline_echo = 0
-let g:airline_theme='papercolor'
+let g:airline_theme='sonokai'
 let g:airline_section_c = '%F'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_powerline_fonts = 1
@@ -308,9 +282,9 @@ let g:ale_fix_on_save=1
 let g:ale_floating_preview=1
 let g:ale_fixers = {
       \ 'elixir': ['mix_format'],
-      \ 'javascript': ['prettier', 'eslint'],
-      \ 'typescript': ['prettier', 'eslint'],
-      \ 'typescriptreact': ['prettier', 'eslint'],
+      \ 'javascript': ['prettier'],
+      \ 'typescript': ['prettier'],
+      \ 'typescriptreact': ['prettier'],
       \}
 
 
@@ -319,11 +293,6 @@ let g:ale_fixers = {
 
 " vim-jsx-pretty configurations
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
-
-" vim-closetag configurations
-let g:closetag_filetypes = 'html,xhtml,phtml,javascript'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.js'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,js'
 
 " UltiSnips configurations
 let g:UltiSnipsExpandTrigger="<C-Space>"
@@ -459,5 +428,5 @@ lua << EOF
   }
 EOF
 
-" colorscheme nord
-colorscheme papercolor
+" set winblend=10
+colorscheme sonokai

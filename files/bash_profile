@@ -28,17 +28,8 @@ alias ll='ls -alG'
 alias vim='nvim'
 alias vi='nvim'
 alias cf='git diff --name-only | uniq | xargs nvim' # open files with conflicts in vim (rebasing)
-alias gac='git diff --name-only | uniq | xargs git add; git rebase --continue' # after fixing conflicts, commit those changes and continue
 alias sniff='curl -w "@$HOME/.sniff.txt" -o /dev/null -s '
-alias mg='rake db:migrate; rake db:migrate RAILS_ENV=test'
 alias uuidgen='uuidgen | tr -d "\n" | tr "[:upper:]" "[:lower:]"'
-
-unamestring=`uname`
-
-# osx aliases
-if [[ "$unamestring" == 'Darwin' ]]; then
-  alias ctags="`brew --prefix`/bin/ctags"
-fi
 
 function git_local_cleanup()
 {
@@ -67,9 +58,11 @@ source ~/.prompt
 
 source ~/.private_vars
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+export KERL_BUILD_DOCS="true"
+
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
