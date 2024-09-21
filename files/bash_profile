@@ -63,6 +63,8 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS="true"
 
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 
-neofetch_path = `which neofetch`
+fastfetch_path = `which fastfetch`
 
-if neofetch_path != ''
-  print `neofetch memory`
+if fastfetch_path != ''
+  print `fastfetch | grep "Memory"`.strip.gsub(/\[\d+C/, '')
 else
-  print 'you need to install neofetch'
+  print 'you need to install fastfetch'
 end
