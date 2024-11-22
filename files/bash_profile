@@ -71,3 +71,6 @@ export PATH="/opt/homebrew/opt/curl/bin:$PATH"
 HEROKU_AC_BASH_SETUP_PATH=/Users/jhon/Library/Caches/heroku/autocomplete/bash_setup && test -f $HEROKU_AC_BASH_SETUP_PATH && source $HEROKU_AC_BASH_SETUP_PATH;
 
 eval "$(direnv hook bash)"
+
+# Created by `pipx` on 2024-09-24 19:12:54
+export PATH="$PATH:/Users/jhon/.local/bin"

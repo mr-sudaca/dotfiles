@@ -227,7 +227,7 @@ endif
 
 " when to jump to the next line
 if exists("&colorcolumn")
-  set colorcolumn=80,100
+  set colorcolumn=100
 endif
 
 " change double to single quotes
