@@ -1,9 +1,3 @@
-#!/usr/bin/env ruby
+#!/bin/bash
 
-fastfetch_path = `which fastfetch`
-
-if fastfetch_path != ''
-  print `fastfetch | grep "Memory"`.strip.gsub(/\[\d+C/, '')
-else
-  print 'you need to install fastfetch'
-end
+fastfetch | ag Memory | sed 's/\x1B\[[0-9;]*[A-Za-z]//g'

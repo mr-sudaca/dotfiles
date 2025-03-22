@@ -426,6 +426,8 @@ lua << EOF
     --   enable = true,
     -- },
   }
+
+  vim.diagnostic.config { virtual_lines = true }
 EOF
 
 " set winblend=10
