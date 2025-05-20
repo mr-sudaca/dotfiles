@@ -31,32 +31,45 @@
 [branch]
         autosetupmerge = true
         autosetuprebase = always
+
 [core]
         whitespace = trailing-space,space-before-tab
         filemode = false
-	editor = \"nvim\"
+        editor = \"nvim\"
+        pager = delta
+
+[interactive]
+        diffFilter = delta --color-only
+
+[delta]
+        navigate = true  # use n and N to move between diff sections
+        # dark = true      # or light = true, or omit for auto-detection
+        line-numbers = true
+
 [rerere]
         enabled = 1
+
 [push]
         default = tracking
+
 [diff]
         mnemonicprefix = true
+
 [merge]
         stat = true
+        conflictstyle = zdiff3
 
-[pager]
-        diff = less -r
-        log = less
-        show = less -r
 [commit]
-	gpgsign = true
+        gpgsign = true
+
 [gpg]
-	program = gpg
+        program = gpg
 
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+        clean = git-lfs clean -- %f
+        smudge = git-lfs smudge -- %f
+        process = git-lfs filter-process
+        required = true
+
 [init]
-	defaultBranch = master
+        defaultBranch = master

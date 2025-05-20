@@ -78,3 +78,6 @@ export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 
 . "$HOME/.cargo/env"
+
+# Added by Windsurf
+export PATH="/Users/jhon/.codeium/windsurf/bin:$PATH"
